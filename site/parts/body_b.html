@@ -1,0 +1,193 @@
+
+    <section class="section" id="s02" aria-labelledby="s02-title">
+      <div class="section-head">
+        <div class="sec-num">02</div>
+        <div>
+          <div class="sec-kicker">Design &amp; coding</div>
+          <h2 id="s02-title">把「我觉得」变成<span class="accent">可复核的编码</span></h2>
+          <p class="section-intro">内容分析最容易出问题的地方，是让结论悄悄决定分类。为了避免这一点，我先固定分析单位、立场定义和标签清单，再用同一套手册编码两个帖子；遇到边界案例，按事先写好的规则裁决，而不是按「哪种说法更顺眼」裁决。</p>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>分析单位是一条回复（1 楼），不是一个人。</b>同一个人多次发言分别计数，因为同一个人可能在不同楼层扮演不同角色：先给条件，再补论证，最后转向元讨论。每条回复获得 <b>1 个主立场 + 若干论证标签</b>：主立场回答「它对可行性下了什么判断」，标签回答「它动用了什么理由」。两个帖子共用同一套代码，因此可以直接比较；但比较的单位仍是「回复」，不是「人」。</p>
+      </div>
+      <div class="codeblock mt16" aria-label="编码数据结构示例">
+<span class="c">// 一条编码记录的结构（示例为主帖第 162 楼，研究者本人发布的报告）</span>
+{
+  <span class="k">"floor"</span>: <span class="n">162</span>,
+  <span class="k">"author"</span>: <span class="s">"itopidea"</span>,
+  <span class="k">"stance"</span>: <span class="s">"E"</span>,              <span class="c">// 元讨论：谈研究本身，不裁决可行性</span>
+  <span class="k">"tags"</span>: [<span class="s">"T12"</span>],           <span class="c">// 元讨论</span>
+  <span class="k">"report"</span>: <span class="n">true</span>,            <span class="c">// 标记为「研究者报告」，但不享有编码特权</span>
+  <span class="k">"note"</span>: <span class="s">"研究者发布 142 楼版本报告、结论与原始材料地址"</span>
+}
+      </div>
+
+      <h3>主立场：五类，互斥</h3>
+      <p class="prose">主立场按「收束句的言语行为」裁决：一条回复可以先铺陈条件、再给结论；编码取它最后落在哪里。若同一条回复既说「可以」又说「但不可能」，则看它是否仍保留一个可成立的条件——保留则为 B，取消则为 A。</p>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="主立场编码定义与两样本分布">
+          <thead><tr><th style="width:7%">代码</th><th style="width:15%">立场</th><th class="center" style="width:9%">主帖</th><th class="center" style="width:9%">旧帖</th><th class="center" style="width:9%">合计</th><th style="width:32%">判定规则</th><th style="width:19%">示例</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chip st-A"><span class="dot"></span>A</span></td><td><b>明确否定</b></td><td class="num center">101</td><td class="num center">115</td><td class="num center"><b>216</b></td><td>对命题给出否定性裁决，包括「不可能 / 乌托邦 / 反人性 / 垃圾堆」，以及以反问收束的否定性论断。</td><td>主 #63「只要人的欲望存在，就不可能实现」</td></tr>
+            <tr><td><span class="chip st-B"><span class="dot"></span>B</span></td><td><b>有条件成立</b></td><td class="num center">25</td><td class="num center">46</td><td class="num center"><b>71</b></td><td>明确说「可以，但前提是……」，无论它是否认为前提可达；条件包括物质极大丰富、AI、觉悟、制度、局部场景。</td><td>主 #20「当然可以，但有前提」</td></tr>
+            <tr><td><span class="chip st-C"><span class="dot"></span>C</span></td><td><b>明确肯定</b></td><td class="num center">2</td><td class="num center">3</td><td class="num center"><b>5</b></td><td>明确预期会实现，或认为已经实现，且不把结论主要挂在不可达的前提上。</td><td>主 #99「我觉得按需分配一定会实现」</td></tr>
+            <tr><td><span class="chip st-D"><span class="dot"></span>D</span></td><td><b>概念悬置</b></td><td class="num center">24</td><td class="num center">43</td><td class="num center"><b>67</b></td><td>不裁决可行性，转而追问「需怎么定义 / 谁来分配 / 觉悟如何衡量 / 语义是否漂移」；若用定义问题直接推出「不可能」，则归 A。</td><td>主 #128「先精确定义什么叫按需」</td></tr>
+            <tr><td><span class="chip st-E"><span class="dot"></span>E</span></td><td><b>元讨论</b></td><td class="num center">22</td><td class="num center">54</td><td class="num center"><b>76</b></td><td>讨论帖子、论坛、发帖动机、审查、信仰或与命题无关的引申，不针对「按需分配能否实现」本身。</td><td>主 #162 研究者报告；旧 #54 论坛风气</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">三列分别为 174、261、435 条的分母。百分比见第 04 节。主帖 #162 是研究者本人，仍按同一手册编码为 E，而不是按「报告支持哪一方」编码。</p>
+
+      <h3>论证标签：十四类，可多选</h3>
+      <p class="prose">标签不是「回复的主题」，而是「回复动用的理由」。一条回复可以同时谈人性与稀缺，也可以一边否定一边给出历史案例。标签统计因此不能相加为 435，只能说明各类理由被多少条回复调用。两个帖子的标签总和分别为 337 与 667，合计 1004 次。</p>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="论证标签编码定义与两样本分布">
+          <thead><tr><th style="width:7%">代码</th><th style="width:17%">标签</th><th class="center" style="width:9%">主帖</th><th class="center" style="width:9%">旧帖</th><th class="center" style="width:9%">合计</th><th style="width:49%">含义</th></tr></thead>
+          <tbody>
+            <tr><td class="num">T1</td><td>人性与欲望</td><td class="num center">41</td><td class="num center">83</td><td class="num center">124</td><td>把可行性归因于自私、贪婪、好逸恶劳、欲望无穷、地位竞争。</td></tr>
+            <tr><td class="num">T2</td><td>稀缺与物理限制</td><td class="num center">29</td><td class="num center">35</td><td class="num center">64</td><td>资源有限；土地、位置、能源、重金属、物理定律无法无限供应。</td></tr>
+            <tr><td class="num">T3</td><td>分配权与监督</td><td class="num center">24</td><td class="num center">34</td><td class="num center">58</td><td>谁来分配；分配者拥有权力；腐败、官僚、特权、监督缺位。</td></tr>
+            <tr><td class="num">T4</td><td>需求定义与语义</td><td class="num center">37</td><td class="num center">51</td><td class="num center">88</td><td>「需」无法定义；基本需求与高级需求之别；语义漂移；谁有资格定义合理需求。</td></tr>
+            <tr><td class="num">T5</td><td>生产力与极大丰富</td><td class="num center">19</td><td class="num center">66</td><td class="num center">85</td><td>物质能否极大丰富；生产力是否足够；可控核聚变、能源无限。</td></tr>
+            <tr><td class="num">T6</td><td>制度与激励</td><td class="num center">27</td><td class="num center">36</td><td class="num center">63</td><td>按劳分配、大锅饭、福利社会、市场经济、法律与惩罚、制度设计。</td></tr>
+            <tr><td class="num">T7</td><td>思想觉悟</td><td class="num center">9</td><td class="num center">6</td><td class="num center">15</td><td>觉悟能否提高、能否客观衡量；精神文明是否可靠。</td></tr>
+            <tr><td class="num">T8</td><td>技术路径</td><td class="num center">9</td><td class="num center">24</td><td class="num center">33</td><td>AI、机器人、自动化、虚拟世界、天网、机器决策。</td></tr>
+            <tr><td class="num">T9</td><td>文本与作者考据</td><td class="num center">24</td><td class="num center">65</td><td class="num center">89</td><td>社会主义/共产主义阶段论、马克思原意、马克思个人经历。</td></tr>
+            <tr><td class="num">T10</td><td>经验与历史案例</td><td class="num center">35</td><td class="num center">92</td><td class="num center">127</td><td>北欧、自助餐、洗手液、粮票、苏联、红色高棉、中国改革、企业家行为、共享单车。</td></tr>
+            <tr><td class="num">T11</td><td>意识形态与道德审判</td><td class="num center">44</td><td class="num center">74</td><td class="num center">118</td><td>「害人」「垃圾」「反人类」「宗教」「低认知」等标签式判断，通常不展开论证。</td></tr>
+            <tr><td class="num">T12</td><td>元讨论</td><td class="num center">19</td><td class="num center">61</td><td class="num center">80</td><td>论坛风气、发帖动机、审查、重复发帖、讨论是否有意义。</td></tr>
+            <tr><td class="num">T13</td><td>文化类比</td><td class="num center">10</td><td class="num center">22</td><td class="num center">32</td><td>三体、火影、黑客帝国、哆啦 A 梦、天堂/宗教叙事等虚构或宗教类比。</td></tr>
+            <tr><td class="num">N</td><td>无论证断言</td><td class="num center">10</td><td class="num center">18</td><td class="num center">28</td><td>只有结论，没有给出任何理由。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">标签为多选，一行可同时有多个标签。T4 的 88 条并不等于 88 个人：同一个人可以在多条回复里反复追问「需是什么」。</p>
+
+      <h3>三个二级标记：条件、让步与反身性</h3>
+      <div class="cards g3 mt16">
+        <div class="card">
+          <div class="card-label">DOUBT / 条件存疑</div>
+          <p class="small mb8"><b>17 条</b>（主 8 / 旧 9）有条件成立回复，同时明说自己的前提难以达到。例：主 #20「不过这个前提几乎不可能达到」。</p>
+          <p class="small mb0">这些回复在立场上仍算 B，但在语用上接近「礼貌的否定」。B 的 71 条中有 23.9% 属于此类；主帖比例更高（8/25 = 32.0%）。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">BASIC / 基本需求可行</div>
+          <p class="small mb8"><b>20 条</b>（主 8 / 旧 12）明确承认「基本生存 / 福利兜底」意义上的按需分配已经实现或可以实现。例：主 #18 的低保、旧 #162 的米饭。</p>
+          <p class="small mb0">这是两帖唯一稳定收敛的区间：不是「无限欲望」，而是「活下去」。第 06 节的三层结论即由此而来。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">REPORT &amp; CROSS / 反身性与跨帖</div>
+          <p class="small mb8"><b>1 条报告</b>：主 #162，研究者发布 142 楼版本。它被编码为 E/T12，不享有任何特权，也不作为支持某方立场的证据。</p>
+          <p class="small mb0"><b>5 条跨帖链接</b>：主 #60、#85、#113、#161、#171 指向旧帖 t/1248284。标记为 CROSS，但不把旧帖内容算进主帖论证次数。</p>
+        </div>
+      </div>
+
+      <h3>七条裁决规则</h3>
+      <ol class="checklist">
+        <li><b>看收束句，不看开场白。</b>先复述对方观点、再反驳的回复，按最后落点编码；反问句若显然是否定修辞（「怎么按需分配？」），归 A。</li>
+        <li><b>B 的门槛是「保留一个可成立的条件」。</b>「可以，但前提几乎不可能」仍是 B；「如果……才可能，所以不可能」则是 A。区别在于条件是否被作者自己取消。</li>
+        <li><b>D 与 A 的分界是「是否裁决」。</b>追问定义但不给结论 = D；用「定义不清」直接推出「所以不可能」= A。主 #128 属于前者，主 #141 属于后者。</li>
+        <li><b>E 与 D 的分界是「对象」。</b>谈概念、语义、分配权 = D；谈帖子、论坛、发帖动机、审查 = E。E 可以带 T11（审判），但主立场仍是 E。</li>
+        <li><b>标签记「理由」，不记「主题」。</b>「马克思说过……」只是背景引用，不标 T9；只有当文本被用来支持或反驳可行性时才标。标签不设数量上限，但避免把寒暄算成论证。</li>
+        <li><b>研究者本人的回复不享有特权。</b>主 #162 是报告，不是证据；它不改变任何编码，也不参与「哪种立场更对」的判断。它的作者身份只影响第 05 节 F8 的反身性分析。</li>
+        <li><b>跨帖提及不合并语料。</b>主帖里引用旧帖，仍算主帖的一条回复；旧帖的原文只在其自己的样本中计数。两帖作者有重叠，合并统计时不能当作 435 个独立个体。</li>
+      </ol>
+
+      <h3>信度：可重复，但不等于双人独立编码</h3>
+      <p class="prose">主编码完成后，以固定随机种子抽取 24 楼做延迟复核：主立场一致 <b>24/24</b>。这只能说明编码规则可重复执行，不能替代双人独立编码，也不能计算 κ 系数。复核样本来自 142 楼版本；新增的 143–174 楼与旧帖 261 楼只经过一次编码，未进入延迟复核。标签的主观度高于主立场，因此本文只报告样本内的描述统计，不作总体推断。</p>
+
+      <h3>六个边界案例</h3>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="编码边界案例">
+          <thead><tr><th style="width:10%">楼层</th><th style="width:30%">原文（节选）</th><th style="width:12%">编码</th><th style="width:48%">为什么</th></tr></thead>
+          <tbody>
+            <tr><td class="num">主 #63</td><td>「只要人的欲望存在，就不可能实现」</td><td><span class="chip st-A"><span class="dot"></span>A</span> T1</td><td>单句否定，理由明确（欲望），没有保留条件。</td></tr>
+            <tr><td class="num">主 #20</td><td>「当然可以，但有前提……不过这个前提几乎不可能达到」</td><td><span class="chip st-B"><span class="dot"></span>B</span> T5 T1 <span class="tiny">DOUBT</span></td><td>仍保留「物质极大丰富」这一条件，所以是 B；但作者自己怀疑前提可达，标 DOUBT。</td></tr>
+            <tr><td class="num">主 #128</td><td>「能不能先精确定义一下什么叫『按需』？」</td><td><span class="chip st-D"><span class="dot"></span>D</span> T4</td><td>只追问定义，没有裁决可行性；不是 A。</td></tr>
+            <tr><td class="num">主 #162</td><td>研究者发布 142 楼版本报告与结论</td><td><span class="chip st-E"><span class="dot"></span>E</span> T12 <span class="tiny">REPORT</span></td><td>谈研究本身，不裁决命题；作者身份不改变编码。</td></tr>
+            <tr><td class="num">旧 #32</td><td>「你没见过共享单车？？？这就是物质极大丰富」</td><td><span class="chip st-B"><span class="dot"></span>B</span> T5 T13 T10</td><td>用共享单车作为「丰裕已存在」的例子，隐含「按需可成立」，属条件肯定。</td></tr>
+            <tr><td class="num">旧 #162</td><td>「现在去饭店吃饭，米饭也是按需分配呀」</td><td><span class="chip st-D"><span class="dot"></span>D</span> T4 T10 <span class="tiny">BASIC</span></td><td>把「需」重新定义为米饭，属于概念操作；不直接说「能实现」，故 D 而非 C。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">注意：主 #162 与旧 #162 是两个人、两种编码。这正是附录必须分样本、加前缀的原因。</p>
+    </section>
+
+    <section class="section" id="s03" aria-labelledby="s03-title">
+      <div class="section-head">
+        <div class="sec-num">03</div>
+        <div>
+          <div class="sec-kicker">Corpus</div>
+          <h2 id="s03-title">435 条回复，<span class="accent">以及它们是怎么被拿到的</span></h2>
+          <p class="section-intro">语料不是「网上一搜就有」的干净数据。它有两个帖子、四个页面、一次登录墙、一次解析错位，还有一条由研究者本人发出的回复。这一节记录语料的边界与缺陷，因为后面每一个百分比都依赖它。</p>
+        </div>
+      </div>
+
+      <div class="cards g2">
+        <div class="card accented">
+          <div class="card-label">Sample 01 / 主帖</div>
+          <h3>《马克思的按需分配，能实现吗》</h3>
+          <p class="small mb8">楼主 space2020 · 2026-11-18 10:14:18 发布 · 节点「随想」 · 标签：按需分配 / 社会主义 / 物质基础</p>
+          <p class="small mb8"><b>174 楼</b> · 147 位作者 · 6751 次浏览 · 首楼 10:21:18，末楼 14:52:37 · 首末间隔 <b>4 小时 31 分</b>。1–174 楼连续，无缺楼、无重复楼。</p>
+          <p class="small mb0">两页：第 1 页 1–100 楼，第 2 页 101–174 楼。第 162 楼是研究者本人发布的 142 楼版本报告（14:29:37）。</p>
+        </div>
+        <div class="card accented">
+          <div class="card-label">Sample 02 / 旧帖</div>
+          <h3>《马克思的按需分配，是不是高估了人性？》</h3>
+          <p class="small mb8">同一楼主 space2020 · 2026-10-13 发布 · 标签：马克思 / 按需分配 / 人性</p>
+          <p class="small mb8"><b>261 楼</b> · 166 位作者 · 14,183 次浏览 · 首楼 10-13，末楼 10-24 · 跨度 <b>11 天</b>。1–261 楼连续。</p>
+          <p class="small mb0">三页：1–100、101–200、201–261。时间戳只有日期，没有分钟；因此旧帖只能做「天级」分析，不能还原小时级峰值。</p>
+        </div>
+      </div>
+
+      <h3>语料事实表</h3>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="两个样本的语料事实">
+          <thead><tr><th style="width:26%">指标</th><th class="center">主帖</th><th class="center">旧帖</th><th class="center">合计 / 备注</th></tr></thead>
+          <tbody>
+            <tr><td>回复数</td><td class="center num">174</td><td class="center num">261</td><td class="center num"><b>435</b></td></tr>
+            <tr><td>作者数（去重）</td><td class="center num">147</td><td class="center num">166</td><td class="center num"><b>285</b>（28 人重叠）</td></tr>
+            <tr><td>浏览数（抓取时）</td><td class="center num">6,751</td><td class="center num">14,183</td><td class="center num">20,934</td></tr>
+            <tr><td>时间跨度</td><td class="center">4 小时 31 分</td><td class="center">11 天</td><td class="center">两种时间尺度</td></tr>
+            <tr><td>中位长度</td><td class="center num">40 字</td><td class="center num">63 字</td><td class="center">旧帖更长</td></tr>
+            <tr><td>平均长度</td><td class="center num">67.3 字</td><td class="center num">103.7 字</td><td class="center">最长 610 / 1312 字</td></tr>
+            <tr><td>含 @ 的回复</td><td class="center num">32（18.4%）</td><td class="center num">115（44.1%）</td><td class="center">合计 147（33.8%）</td></tr>
+            <tr><td>直接裁决可行性（A/B/C）</td><td class="center num">128</td><td class="center num">164</td><td class="center num">292（67.1%）</td></tr>
+            <tr><td>其中否定占比</td><td class="center num">78.9%</td><td class="center num">70.1%</td><td class="center num">74.0%</td></tr>
+            <tr><td>明确承认基本需求可行</td><td class="center num">8</td><td class="center num">12</td><td class="center num">20</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">作者重叠数来自集合运算：147 + 166 − 285 = 28。合并样本时不能把 435 条回复当作 435 个独立个体；同一位作者可能在不同帖子、不同楼层反复发言。</p>
+
+      <div class="cards g2 mt32">
+        <div class="card">
+          <div class="card-label">Parsing / 抓取与解析</div>
+          <p class="small mb8">主帖通过公开页面抓取，结构为 <span class="mono">div[id^="r_"]</span>，楼层号在 <span class="mono">span.no</span>，时间在 <span class="mono">span.ago[title]</span>，正文在 <span class="mono">.reply_content</span>。第 1 页满 100 楼，第 2 页 74 楼，合计 174。</p>
+          <p class="small mb8">旧帖的三页经登录后 HTML 结构基本一致，但被登录墙拦过一次（<span class="mono">/restricted</span>）；最终以登录态页面与逐页文本核对完成解析。三页分别为 100、100、61 楼。</p>
+          <p class="small mb0">解析后做了三项校验：楼层号连续、作者与时间非空、正文不以下一楼作者名开头。第三项曾抓出一个真实 bug：旧帖 #116 的正文尾部漏进了 #117 的作者名，原因是把下一楼锚点减了固定偏移。改为「按下一楼实际 header 起点切」后，261 楼全部对齐。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Boundary / 语料边界</div>
+          <p class="small mb8"><b>能说：</b>两个帖子在抓取时刻的公开回复、作者名、时间与正文；能说「在这两个样本中」的分布、共变与差异。</p>
+          <p class="small mb8"><b>不能说：</b>V2EX 全体用户的意见、两帖之外的人怎么看、点赞/排序/删帖后的「真实共识」。点赞数与用户人口学信息未纳入；旧帖的点赞只在抓取时可见，未做时序分析。</p>
+          <p class="small mb0"><b>非独立性：</b>28 位作者同时出现在两帖；旧帖的 #172–#259 还包含一场二人缠斗（33 条回复）。这些都不是独立观测，不能直接套用独立样本的显著性检验。</p>
+        </div>
+      </div>
+
+      <h3>跨帖引用：五条链接，一次时间错觉</h3>
+      <p class="prose">主帖中有 5 条回复直接链接旧帖（#60、#85、#113、#161、#171）。它们承担的功能不同：#60 与 #161 是「你怎么又来一次」的元评论；#85 与 #113 是把旧帖当作「前情提要」；#171 则在嘲讽楼主「想了 6 年都没想明白」——两分钟后，同一位作者在 #172 自己更正：「看错，是上个月的……」。旧帖实际发布于 2026-10-13，距主帖只有一个月。这个小错误不是语料错误，而是讨论者时间记忆的证据；它也被保留在编码表里。</p>
+      <p class="prose">另一个细节：#161（14:29:37）与研究者的报告 #162（14:29:37）出现在同一分钟。一条在骂「一个月来一次」，一条在发布研究报告；它们并置在同一屏，却几乎没有互相回应。这是第 05 节 F8 的起点。</p>
+
+      <div class="cards g2 mt24">
+        <div class="card">
+          <div class="card-label">Ethics / 研究伦理</div>
+          <p class="small mb0">两帖均为公开论坛内容，无需私信或好友权限；用户名按原文保留，以便读者回查，但不对个人作画像或价值判断。引语只剪裁、不改写，省略处用「……」标出；粗俗与攻击性表达保留在原表中，不在正文重复放大。研究者本人是主帖参与者（#162），这一身份在第 05 节 F8 与第 07 节 4.4 明确披露，并在编码时把报告当作普通 E 类回复。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Language / 语言处理</div>
+          <p class="small mb0">正文保留错别字、表情、网络缩略语与反讽，因为它们是判断立场与语气的线索。编码不依赖自动情感分析：本语料大量使用反讽（「马扁子」「水深火热」「🤡」），词典法会系统性误判。关键词统计只做字面匹配，例如「需」会命中「需要」「需求」「按需」，也会命中「无需」；它描述的是<em>词面热度</em>，不是概念覆盖率。</p>
+        </div>
+      </div>
+    </section>

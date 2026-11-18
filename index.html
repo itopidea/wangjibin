@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>王吉彬学习小站</title>
+<meta name="description" content="王吉彬学习小站：学习、研究、写作。第一篇《从「能不能」到「谁说了算」》——两个 V2EX 帖子的 435 楼话语研究。">
+<link rel="canonical" href="https://wangjibin.cn/">
+<meta name="theme-color" content="#f7f4ec">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="王吉彬学习小站">
+<meta property="og:title" content="王吉彬学习小站">
+<meta property="og:description" content="学习、研究、写作。做完一篇，放上来。">
+<meta property="og:url" content="https://wangjibin.cn/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23b23a2e'/%3E%3Ctext x='32' y='45' font-family='serif' font-size='38' fill='%23f7f4ec' text-anchor='middle'%3E%E7%8E%8B%3C/text%3E%3C/svg%3E">
+<style>
+/* 标题字：朱雀仿宋（Zhuque Fangsong）© 璇玑造字，SIL OFL 1.1，仅嵌入站名 7 字 */
+@font-face{
+  font-family:"WangjibinFangSong";
+  src:url(data:font/woff2;base64,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) format("woff2");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --bg:#f7f4ec;
+  --ink:#22201b;
+  --ink-2:#454036;
+  --muted:#756c5b;
+  --faint:#a1988a;
+  --line:#ded5c2;
+  --accent:#b23a2e;
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --fangsong:"FangSong","FangSong_GB2312","STFangsong","华文仿宋","仿宋","Noto Serif SC","Songti SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"SFMono-Regular","Cascadia Code",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(178,58,46,.16)}
+a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(178,58,46,.3);transition:color .15s,border-color .15s}
+a:hover{color:var(--accent);border-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:9px 13px}
+.skip:focus{left:16px;top:16px}
+
+.wrap{max-width:660px;margin:0 auto;padding:64px 24px 56px}
+
+.site h1{font-family:"WangjibinFangSong",var(--fangsong);font-size:28px;font-weight:400;letter-spacing:.02em;margin:0}
+.site h1 a{border:0}
+.tagline{font-size:13px;color:var(--muted);margin:8px 0 0}
+.site-nav{display:flex;gap:18px;margin:20px 0 0;font-size:12px;color:var(--muted)}
+.site-nav a{border:0}
+.site-nav a:hover{color:var(--accent)}
+
+main{margin-top:46px}
+.section-title{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;margin:0 0 4px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+
+.post{padding:26px 0 30px;border-bottom:1px solid var(--line)}
+.post-meta{display:flex;gap:14px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--faint)}
+.post h3{font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.45;margin:12px 0 0}
+.post h3 a{border:0}
+.post-sub{font-size:13px;color:var(--muted);margin:5px 0 0}
+.post-summary{font-size:13.5px;line-height:1.95;color:var(--ink-2);margin:14px 0 0}
+.more{display:inline-block;margin:14px 0 0;font-size:12px;letter-spacing:.03em;border:0}
+.more:hover{color:var(--accent)}
+
+.about{margin-top:44px}
+.about p{font-size:13.5px;line-height:2;color:var(--muted);margin:12px 0 0}
+.about b{color:var(--ink-2);font-weight:600}
+
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:10.5px;color:var(--faint);display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap}
+
+@media (max-width:600px){
+  .wrap{padding:40px 20px 40px}
+  .site h1{font-size:23px}
+  .site-nav{gap:14px}
+  main{margin-top:36px}
+  .post{padding:22px 0 26px}
+  .post h3{font-size:21px}
+  footer{margin-top:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#posts">跳到文章列表</a>
+
+<div class="wrap">
+  <header class="site">
+    <h1><a href="index.html">王吉彬学习小站</a></h1>
+    <p class="tagline">学习、研究、写作。做完一篇，放上来。</p>
+    <nav class="site-nav" aria-label="站点导航">
+      <a href="#posts">文章</a>
+      <a href="#about">关于</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="posts" aria-labelledby="posts-title">
+      <h2 class="section-title" id="posts-title">文章</h2>
+
+      <article class="post">
+        <div class="post-meta">
+          <time datetime="2026-11-18">2026-11-18</time>
+          <span>No. 0001</span>
+        </div>
+        <h3><a href="0001.html">从「能不能」到「谁说了算」</a></h3>
+        <p class="post-sub">两个 V2EX 帖子的 435 楼话语研究</p>
+        <p class="post-summary">以两场相隔一个月的「按需分配」争论为语料，逐条编码 435 条回复，完整呈现选题、编码、统计、分层结论与研究局限。</p>
+        <a class="more" href="0001.html">阅读全文 →</a>
+      </article>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">关于</h2>
+      <p><b>王吉彬</b>，独立学习与写作。这里主要放用公开材料做的小型内容分析和学习笔记。能复算的，不只给结论；不能复算的，写明边界。</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 王吉彬</span>
+    <span>wangjibin.cn</span>
+  </footer>
+</div>
+</body>
+</html>

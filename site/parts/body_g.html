@@ -1,0 +1,316 @@
+
+    <section class="section" id="s08" aria-labelledby="s08-title">
+      <div class="section-head">
+        <div class="sec-num">08</div>
+        <div>
+          <div class="sec-kicker">Appendix</div>
+          <h2 id="s08-title">全部 435 条，<span class="accent">逐条可查</span></h2>
+          <p class="section-intro">附录是本研究的地基：每一条回复的原文、主立场、论证标签与备注都在这里。两个帖子分标签页展示；每个标签页有自己的筛选、搜索与下载。所有正文引语都能在表中找到对应楼层。</p>
+        </div>
+      </div>
+
+      <div class="btn-row no-print">
+        <button class="btn" id="download-all-json" type="button">下载全部编码 JSON</button>
+        <button class="btn ghost" id="download-all-csv" type="button">下载全部 CSV</button>
+        <a class="btn ghost" href="https://global.v2ex.co/t/1257906?p=1" target="_blank" rel="noopener">主帖第 1 页 ↗</a>
+        <a class="btn ghost" href="https://v2ex.com/t/1248284?p=1" target="_blank" rel="noopener">旧帖第 1 页 ↗</a>
+      </div>
+
+      <div class="sample-tabs no-print" role="tablist" aria-label="选择语料样本">
+        <button class="sample-tab" id="tab-main" role="tab" type="button" data-sample-tab="main" aria-selected="true" aria-controls="panel-main">主帖 · 174 条</button>
+        <button class="sample-tab" id="tab-old" role="tab" type="button" data-sample-tab="old" aria-selected="false" aria-controls="panel-old">旧帖 · 261 条</button>
+      </div>
+
+      <div class="sample-panel" id="panel-main" role="tabpanel" aria-labelledby="tab-main" data-sample-panel="main">
+        <div class="filters no-print" role="group" aria-label="筛选主帖编码表">
+          <button class="filter-chip" type="button" data-stance-filter="all" aria-pressed="true">全部</button>
+          <button class="filter-chip" type="button" data-stance-filter="A" aria-pressed="false">A 明确否定</button>
+          <button class="filter-chip" type="button" data-stance-filter="B" aria-pressed="false">B 有条件成立</button>
+          <button class="filter-chip" type="button" data-stance-filter="C" aria-pressed="false">C 明确肯定</button>
+          <button class="filter-chip" type="button" data-stance-filter="D" aria-pressed="false">D 概念悬置</button>
+          <button class="filter-chip" type="button" data-stance-filter="E" aria-pressed="false">E 元讨论</button>
+          <label class="search" for="search-main"><span>⌕</span><input class="js-search" id="search-main" type="search" placeholder="搜索主帖原文、作者、楼层或备注…" autocomplete="off"></label>
+          <select class="filter-chip js-tag" aria-label="按论证标签筛选主帖" style="padding:6px 8px;max-width:210px">
+            {{TAG_OPTIONS}}
+          </select>
+          <button class="filter-chip js-clear" type="button">清除筛选</button>
+        </div>
+        <div class="filter-meta">
+          <span>显示 <b class="js-count">174</b> / <span data-total="174">174</span> 条</span>
+          <span>主帖行 ID 前缀 f · 原文保留，未做删改</span>
+        </div>
+        <div class="table-wrap">
+          <table class="coded-table" aria-label="主帖 174 条回复的完整编码表">
+            <thead>
+              <tr><th>楼</th><th>时间</th><th>作者</th><th>立场</th><th>论证标签</th><th>备注</th><th>原文</th></tr>
+            </thead>
+            <tbody>
+              {{APPENDIX_ROWS}}
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state js-empty">没有符合条件的主帖回复。试试清除筛选，或换一个关键词。</div>
+        <div class="btn-row no-print mt16">
+          <button class="btn ghost js-download-json" type="button">下载主帖编码 JSON</button>
+          <button class="btn ghost js-download-csv" type="button">下载主帖 CSV</button>
+        </div>
+      </div>
+
+      <div class="sample-panel" id="panel-old" role="tabpanel" aria-labelledby="tab-old" data-sample-panel="old" hidden>
+        <div class="filters no-print" role="group" aria-label="筛选旧帖编码表">
+          <button class="filter-chip" type="button" data-stance-filter="all" aria-pressed="true">全部</button>
+          <button class="filter-chip" type="button" data-stance-filter="A" aria-pressed="false">A 明确否定</button>
+          <button class="filter-chip" type="button" data-stance-filter="B" aria-pressed="false">B 有条件成立</button>
+          <button class="filter-chip" type="button" data-stance-filter="C" aria-pressed="false">C 明确肯定</button>
+          <button class="filter-chip" type="button" data-stance-filter="D" aria-pressed="false">D 概念悬置</button>
+          <button class="filter-chip" type="button" data-stance-filter="E" aria-pressed="false">E 元讨论</button>
+          <label class="search" for="search-old"><span>⌕</span><input class="js-search" id="search-old" type="search" placeholder="搜索旧帖原文、作者、楼层或备注…" autocomplete="off"></label>
+          <select class="filter-chip js-tag" aria-label="按论证标签筛选旧帖" style="padding:6px 8px;max-width:210px">
+            {{OLD_TAG_OPTIONS}}
+          </select>
+          <button class="filter-chip js-clear" type="button">清除筛选</button>
+        </div>
+        <div class="filter-meta">
+          <span>显示 <b class="js-count">261</b> / <span data-total="261">261</span> 条</span>
+          <span>旧帖行 ID 前缀 o · 时间只有日期</span>
+        </div>
+        <div class="table-wrap">
+          <table class="coded-table" aria-label="旧帖 261 条回复的完整编码表">
+            <thead>
+              <tr><th>楼</th><th>日期</th><th>作者</th><th>立场</th><th>论证标签</th><th>备注</th><th>原文</th></tr>
+            </thead>
+            <tbody>
+              {{OLD_APPENDIX_ROWS}}
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state js-empty">没有符合条件的旧帖回复。试试清除筛选，或换一个关键词。</div>
+        <div class="btn-row no-print mt16">
+          <button class="btn ghost js-download-json" type="button">下载旧帖编码 JSON</button>
+          <button class="btn ghost js-download-csv" type="button">下载旧帖 CSV</button>
+        </div>
+      </div>
+
+      <div class="cards g2 mt32">
+        <div class="card">
+          <div class="card-label">Reproducibility / 复算</div>
+          <p class="small mb8">数据流水线：抓取 5 个页面 → 解析 435 楼 → 逐条编码 → 统计 → 图表与表格。结构化文件包括：<span class="mono">corpus.json</span>（主帖 174 楼）、<span class="mono">corpus_old.json</span>（旧帖 261 楼）、<span class="mono">coded.json</span>（主帖编码）、<span class="mono">coded_old.json</span>（旧帖编码）、<span class="mono">analysis.json</span>（主帖统计 + 旧帖 + 对照）、<span class="mono">analysis_old.json</span>（旧帖统计副本）。</p>
+          <p class="small mb0">正文与图表中的数字取自同一份统计结果；标签为多选，百分比分别以 174、261、435 为分母。若发现任何数字与附录不一致，以附录逐条数据为准，并欢迎指出。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Sources / 来源</div>
+          <ul class="source-list">
+            <li><span class="id">S1</span><span>主帖第 1 页（1–100 楼）<br><a class="url" href="https://global.v2ex.co/t/1257906?p=1" target="_blank" rel="noopener">https://global.v2ex.co/t/1257906?p=1</a></span></li>
+            <li><span class="id">S2</span><span>主帖第 2 页（101–174 楼）<br><a class="url" href="https://global.v2ex.co/t/1257906?p=2" target="_blank" rel="noopener">https://global.v2ex.co/t/1257906?p=2</a></span></li>
+            <li><span class="id">S3</span><span>旧帖第 1 页（1–100 楼）<br><a class="url" href="https://v2ex.com/t/1248284?p=1" target="_blank" rel="noopener">https://v2ex.com/t/1248284?p=1</a></span></li>
+            <li><span class="id">S4</span><span>旧帖第 2 页（101–200 楼）<br><a class="url" href="https://v2ex.com/t/1248284?p=2" target="_blank" rel="noopener">https://v2ex.com/t/1248284?p=2</a></span></li>
+            <li><span class="id">S5</span><span>旧帖第 3 页（201–261 楼）<br><a class="url" href="https://v2ex.com/t/1248284?p=3" target="_blank" rel="noopener">https://v2ex.com/t/1248284?p=3</a></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mt24">
+        <div class="card-label">Citation / 引用建议</div>
+        <p class="small mb0">引用本页时，请同时注明：（1）语料为 V2EX 主帖 174 条与旧帖 261 条公开回复，共 435 条；（2）编码与统计为研究者判断，非平台官方数据；（3）引语保留楼层号，并注明「主 / 旧」；（4）本研究为描述性样本，不作总体推断。建议格式：〈同一问题，两种论证：V2EX 两场「按需分配」争论的跨样本话语分析〉，2026-11-18，基于 https://global.v2ex.co/t/1257906 与 https://v2ex.com/t/1248284。</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="mark">把争论看清楚，<span>不等于</span>把争论判完。</div>
+      <div class="fine">本页为独立研究演示。语料来自公开论坛，观点属于原作者；编码与统计由研究者完成。引用请保留楼层号与原始链接。研究者本人是主帖 #162 的发布者，该身份已在正文披露。最后更新：2026-11-18。</div>
+    </footer>
+  </main>
+</div>
+<script>
+/* __CODED_JSON__ */
+</script>
+<script>
+(function(){
+  "use strict";
+  var progress = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
+    progress.style.width = (p * 100).toFixed(2) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a[href^="#"], .topnav a[href^="#"]'));
+  var targets = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el && targets.indexOf(el) < 0) targets.push(el);
+  });
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+        }
+      });
+    }, {rootMargin:'-20% 0px -70% 0px', threshold:0});
+    targets.forEach(function(t){ obs.observe(t); });
+  }
+
+  function initPanel(root){
+    if(!root) return null;
+    var state = {stance:'all', tag:'', q:''};
+    var rows = Array.prototype.slice.call(root.querySelectorAll('tbody tr'));
+    var countEl = root.querySelector('.js-count');
+    var emptyEl = root.querySelector('.js-empty');
+    var stanceBtns = Array.prototype.slice.call(root.querySelectorAll('[data-stance-filter]'));
+    var tagSel = root.querySelector('.js-tag');
+    var searchEl = root.querySelector('.js-search');
+    var clearBtn = root.querySelector('.js-clear');
+
+    function apply(){
+      var q = state.q.trim().toLowerCase();
+      var shown = 0;
+      rows.forEach(function(row){
+        var okStance = state.stance === 'all' || row.getAttribute('data-stance') === state.stance;
+        var tags = (row.getAttribute('data-tags') || '').split(' ');
+        var okTag = !state.tag || tags.indexOf(state.tag) >= 0;
+        var okQ = !q || row.textContent.toLowerCase().indexOf(q) >= 0;
+        var show = okStance && okTag && okQ;
+        row.classList.toggle('is-hidden', !show);
+        if(show) shown++;
+      });
+      if(countEl) countEl.textContent = String(shown);
+      if(emptyEl) emptyEl.style.display = shown === 0 ? 'block' : 'none';
+      if(tagSel) tagSel.value = state.tag;
+      stanceBtns.forEach(function(b){
+        b.setAttribute('aria-pressed', b.getAttribute('data-stance-filter') === state.stance ? 'true' : 'false');
+      });
+    }
+    stanceBtns.forEach(function(b){
+      b.addEventListener('click', function(){
+        state.stance = b.getAttribute('data-stance-filter');
+        apply();
+      });
+    });
+    if(tagSel){
+      tagSel.addEventListener('change', function(){ state.tag = tagSel.value; apply(); });
+    }
+    if(searchEl){
+      var t;
+      searchEl.addEventListener('input', function(){
+        clearTimeout(t);
+        t = setTimeout(function(){ state.q = searchEl.value; apply(); }, 120);
+      });
+    }
+    if(clearBtn){
+      clearBtn.addEventListener('click', function(){
+        state = {stance:'all', tag:'', q:''};
+        if(searchEl) searchEl.value = '';
+        apply();
+      });
+    }
+    return {
+      apply: apply,
+      setTag: function(tag){
+        state.tag = tag;
+        state.stance = 'all';
+        state.q = '';
+        if(searchEl) searchEl.value = '';
+        apply();
+      }
+    };
+  }
+
+  var panelMain = document.getElementById('panel-main');
+  var panelOld = document.getElementById('panel-old');
+  var panels = {
+    main: initPanel(panelMain),
+    old: initPanel(panelOld)
+  };
+
+  function activateSample(key){
+    Array.prototype.slice.call(document.querySelectorAll('[data-sample-tab]')).forEach(function(btn){
+      var on = btn.getAttribute('data-sample-tab') === key;
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    Array.prototype.slice.call(document.querySelectorAll('[data-sample-panel]')).forEach(function(p){
+      p.hidden = p.getAttribute('data-sample-panel') !== key;
+    });
+  }
+  Array.prototype.slice.call(document.querySelectorAll('[data-sample-tab]')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      activateSample(btn.getAttribute('data-sample-tab'));
+    });
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll('[data-filter-tag]')).forEach(function(el){
+    el.addEventListener('click', function(){
+      var tag = el.getAttribute('data-filter-tag');
+      activateSample('main');
+      if(panels.main) panels.main.setTag(tag);
+      var s = document.getElementById('s08');
+      if(s) s.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  function download(name, text, mime){
+    var blob = new Blob([text], {type:mime});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  }
+
+  function csvFor(data){
+    var head = ['floor','author','time','stance','stance_label','tags','note','text'];
+    function cell(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }
+    var lines = [head.map(cell).join(',')];
+    data.replies.forEach(function(r){
+      lines.push([r.floor,r.author,r.time,r.stance,data.stances[r.stance],r.tags.join(' '),r.note,r.text].map(cell).join(','));
+    });
+    return '\ufeff' + lines.join('\r\n');
+  }
+
+  var mainJson = panelMain ? panelMain.querySelector('.js-download-json') : null;
+  if(mainJson) mainJson.addEventListener('click', function(){
+    download('v2ex-1257906-coded.json', JSON.stringify(window.__CODED__, null, 2), 'application/json;charset=utf-8');
+  });
+  var oldJson = panelOld ? panelOld.querySelector('.js-download-json') : null;
+  if(oldJson) oldJson.addEventListener('click', function(){
+    download('v2ex-1248284-coded.json', JSON.stringify(window.__CODED_OLD__, null, 2), 'application/json;charset=utf-8');
+  });
+  var allJson = document.getElementById('download-all-json');
+  if(allJson) allJson.addEventListener('click', function(){
+    download('v2ex-dual-sample-coded.json', JSON.stringify({main: window.__CODED__, old: window.__CODED_OLD__}, null, 2), 'application/json;charset=utf-8');
+  });
+
+  var mainCsv = panelMain ? panelMain.querySelector('.js-download-csv') : null;
+  if(mainCsv) mainCsv.addEventListener('click', function(){
+    download('v2ex-1257906-coded.csv', csvFor(window.__CODED__), 'text/csv;charset=utf-8');
+  });
+  var oldCsv = panelOld ? panelOld.querySelector('.js-download-csv') : null;
+  if(oldCsv) oldCsv.addEventListener('click', function(){
+    download('v2ex-1248284-coded.csv', csvFor(window.__CODED_OLD__), 'text/csv;charset=utf-8');
+  });
+  var allCsv = document.getElementById('download-all-csv');
+  if(allCsv) allCsv.addEventListener('click', function(){
+    var head = ['sample','floor','author','time','stance','stance_label','tags','note','text'];
+    function cell(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }
+    var lines = [head.map(cell).join(',')];
+    [['main', window.__CODED__], ['old', window.__CODED_OLD__]].forEach(function(pair){
+      pair[1].replies.forEach(function(r){
+        lines.push([pair[0],r.floor,r.author,r.time,r.stance,pair[1].stances[r.stance],r.tags.join(' '),r.note,r.text].map(cell).join(','));
+      });
+    });
+    download('v2ex-dual-sample-coded.csv', '\ufeff' + lines.join('\r\n'), 'text/csv;charset=utf-8');
+  });
+
+  var printBtn = document.getElementById('print-report');
+  if(printBtn){ printBtn.addEventListener('click', function(){ window.print(); }); }
+
+  if(panels.main) panels.main.apply();
+  if(panels.old) panels.old.apply();
+})();
+</script>
+</body>
+</html>

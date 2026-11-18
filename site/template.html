@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>从「能不能」到「谁说了算」｜两个 V2EX 帖子的 435 楼话语研究</title>
+<meta name="description" content="以 V2EX 两个同题帖子的 435 条回复为语料，完整呈现从选题、编码、计量到分层结论与研究报告的双样本内容分析。">
+<link rel="canonical" href="https://wangjibin.cn/0001.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="王吉彬学习小站">
+<meta property="og:title" content="从「能不能」到「谁说了算」｜两个 V2EX 帖子的 435 楼话语研究">
+<meta property="og:description" content="以 V2EX 两个同题帖子的 435 条回复为语料，完整呈现选题、编码、计量、分层结论与研究报告。">
+<meta property="og:url" content="https://wangjibin.cn/0001.html">
+<style>
+:root{
+  --paper:#f4efe4;
+  --paper-2:#fbf8f1;
+  --paper-3:#efe8da;
+  --ink:#1b1a17;
+  --ink-2:#3d3a33;
+  --muted:#726b5e;
+  --faint:#9b9384;
+  --line:#d8cfbd;
+  --line-2:#e6dfd1;
+  --accent:#b23a2e;
+  --accent-2:#8e2b21;
+  --teal:#1f5f5b;
+  --gold:#a97b28;
+  --a:#b23a2e;
+  --b:#bd8828;
+  --c:#2f7d5c;
+  --d:#3f6f8f;
+  --e:#8a8378;
+  --max:1320px;
+  --serif:"Songti SC","Noto Serif SC","Source Han Serif SC","STSong","SimSun",serif;
+  --sans:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --mono:"SFMono-Regular","Cascadia Mono",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:radial-gradient(circle at 18% 0%, #fffaf0 0%, rgba(255,250,240,0) 42%);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(27,26,23,.22);transition:color .15s,border-color .15s}
+a:hover{color:var(--accent);border-color:var(--accent)}
+button{font-family:inherit}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:120;transition:width .08s linear}
+.topbar{position:fixed;top:0;left:0;right:0;height:52px;z-index:100;background:rgba(244,239,228,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar-inner{max-width:var(--max);margin:0 auto;height:100%;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-family:var(--serif);font-size:15px;font-weight:600;letter-spacing:.03em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.topnav{display:flex;align-items:center;gap:17px;font-size:11.5px;letter-spacing:.04em;color:var(--muted);overflow-x:auto;scrollbar-width:none}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{border:0;padding:6px 0;white-space:nowrap;position:relative}
+.topnav a.active{color:var(--ink)}
+.topnav a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--accent)}
+.topnav .home-only{display:none}
+.topnav .top-cta{color:var(--accent);border:1px solid rgba(178,58,46,.35);padding:5px 9px;margin-left:4px}
+.topnav .top-cta:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.shell{max-width:var(--max);margin:0 auto;padding:52px 28px 0;display:grid;grid-template-columns:176px minmax(0,1fr);gap:56px}
+.rail{position:sticky;top:92px;align-self:start;max-height:calc(100vh - 112px);overflow:auto;padding:34px 0 20px;scrollbar-width:thin}
+.rail-title{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 16px}
+.rail nav{display:flex;flex-direction:column;gap:1px}
+.rail a{display:flex;align-items:baseline;gap:10px;border:0;padding:6px 0;font-size:12.5px;color:var(--muted);line-height:1.5}
+.rail a .n{font-family:var(--mono);font-size:9.5px;color:var(--faint);width:16px;flex:0 0 16px;letter-spacing:.04em}
+.rail a:hover{color:var(--ink)}
+.rail a.active{color:var(--accent)}
+.rail a.active .n{color:var(--accent)}
+.rail-foot{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:10.5px;line-height:1.75;color:var(--faint)}
+.rail-home{display:inline-block;margin:0 0 12px;font-size:11.5px;color:var(--accent);border:0}
+.rail-foot b{display:block;color:var(--muted);font-weight:500;margin-bottom:4px;letter-spacing:.06em}
+main{min-width:0;padding-bottom:60px}
+.hero{position:relative;padding:44px 0 52px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::after{content:"435";position:absolute;right:-6px;top:8px;font-family:var(--serif);font-size:clamp(120px,17vw,224px);line-height:.8;color:rgba(178,58,46,.045);letter-spacing:-.06em;pointer-events:none}
+.kicker{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.kicker::before{content:"";width:30px;height:1px;background:var(--accent)}
+h1{position:relative;z-index:1;font-family:var(--serif);font-weight:600;font-size:clamp(38px,5.4vw,70px);line-height:1.13;letter-spacing:-.025em;margin:0 0 24px;max-width:900px}
+h1 em{font-style:normal;color:var(--accent)}
+.subtitle{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(16px,1.8vw,20px);line-height:1.75;color:var(--ink-2);max-width:820px;margin:0 0 30px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 34px;position:relative;z-index:1}
+.meta{font-size:11px;letter-spacing:.03em;color:var(--muted);border:1px solid var(--line);background:rgba(255,255,255,.32);padding:5px 10px}
+.meta strong{color:var(--ink);font-weight:600}
+.stamp{position:absolute;right:34px;top:150px;z-index:2;border:1.5px solid rgba(178,58,46,.55);color:var(--accent);font-family:var(--serif);font-size:10px;line-height:1.7;letter-spacing:.18em;text-align:center;padding:9px 11px;transform:rotate(-5deg);opacity:.8}
+.stamp b{display:block;font-size:13px;letter-spacing:.1em;font-weight:600}
+.stepper{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:38px;border-top:1px solid var(--line);position:relative;z-index:1}
+.step{padding:15px 12px 0 0;border-right:1px solid var(--line-2)}
+.step:last-child{border-right:0;padding-right:0}
+.step .num{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--faint)}
+.step .name{font-family:var(--serif);font-size:14px;color:var(--ink);margin-top:4px}
+.step .desc{font-size:10px;line-height:1.55;color:var(--muted);margin-top:2px}
+.section{padding:74px 0;border-bottom:1px solid var(--line);scroll-margin-top:78px}
+.section-head{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;align-items:start;margin-bottom:34px}
+.sec-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);padding-top:11px}
+.sec-kicker{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(27px,3.3vw,39px);line-height:1.28;letter-spacing:-.01em;margin:0}
+h2 .accent{color:var(--accent)}
+h3{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.45;margin:34px 0 13px}
+h4{font-size:14px;font-weight:600;letter-spacing:.02em;margin:24px 0 8px}
+p{margin:0 0 15px;color:var(--ink-2)}
+.section-intro{font-size:16.5px;line-height:1.9;color:var(--ink-2);max-width:800px;margin:16px 0 0}
+.lede{font-size:18.5px;line-height:1.9;color:var(--ink);max-width:820px}
+.small{font-size:12.5px;line-height:1.75;color:var(--muted)}
+.tiny{font-size:10.5px;line-height:1.65;color:var(--faint);letter-spacing:.02em}
+.mono{font-family:var(--mono)}
+.prose{max-width:820px}
+.cards{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--paper-2);border:1px solid var(--line);padding:25px;min-width:0}
+.card-label{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+.card h3{margin-top:0}
+.card p:last-child{margin-bottom:0}
+.card.accented{border-top:2px solid var(--accent)}
+.card.flat{background:transparent}
+.stat{border-top:2px solid var(--ink);padding-top:13px;min-width:0}
+.stat .v{font-family:var(--serif);font-size:clamp(34px,3.4vw,46px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat .v small{font-family:var(--sans);font-size:13px;color:var(--muted);letter-spacing:0;margin-left:4px}
+.stat .l{font-size:11.5px;line-height:1.6;color:var(--muted);margin-top:7px}
+.stat.red{border-color:var(--accent)}
+.stat.red .v{color:var(--accent)}
+.stat.blue{border-color:var(--d)}
+.stat.blue .v{color:var(--d)}
+.stat.green{border-color:var(--c)}
+.stat.green .v{color:var(--c)}
+.stat.gold{border-color:var(--b)}
+.stat.gold .v{color:var(--b)}
+.table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.65}
+.table th{text-align:left;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:500;padding:9px 11px;border-bottom:1px solid var(--ink);vertical-align:bottom}
+.table td{padding:11px;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2)}
+.table tr.selected td{background:#f7ecd9}
+.table tr.selected td:first-child{box-shadow:inset 2px 0 0 var(--accent)}
+.table .num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.table .center{text-align:center}
+.table .score{font-family:var(--mono);font-size:14px;color:var(--ink);font-weight:600}
+.table-note{font-size:10.5px;color:var(--faint);line-height:1.65;margin-top:8px}
+.quote{border-left:3px solid var(--accent);padding:4px 0 4px 20px;margin:20px 0;font-family:var(--serif);font-size:17.5px;line-height:1.8;color:var(--ink)}
+.quote .src{display:block;margin-top:9px;font-family:var(--sans);font-size:10.5px;letter-spacing:.03em;color:var(--muted)}
+.quote .src a{border:0}
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0}
+.qcard{background:var(--paper-2);border:1px solid var(--line);padding:20px 21px 16px;position:relative;min-width:0}
+.qcard::before{content:"“";position:absolute;top:2px;left:10px;font-family:var(--serif);font-size:42px;line-height:1;color:var(--line);pointer-events:none}
+.qcard p{position:relative;font-family:var(--serif);font-size:15.5px;line-height:1.8;color:var(--ink);margin:10px 0 12px}
+.qcard .who{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1px solid var(--line-2);padding-top:8px;font-size:10.5px;color:var(--muted);letter-spacing:.02em}
+.qcard .who b{font-weight:500;color:var(--ink-2)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;line-height:1;padding:5px 7px;border:1px solid var(--line);background:rgba(255,255,255,.32);color:var(--muted);white-space:nowrap;vertical-align:middle}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:0 0 6px}
+.st-A{color:#8e2b21;background:#f3ded8;border-color:#ddb9b0}
+.st-B{color:#7a5514;background:#f3e6c9;border-color:#ddc79a}
+.st-C{color:#1f5c43;background:#dcebe2;border-color:#b9d6c6}
+.st-D{color:#2f566e;background:#dfeaf0;border-color:#b9cedb}
+.st-E{color:#5f5a50;background:#e9e5dd;border-color:#cfc8bc}
+.tag{display:inline-block;font-size:10px;line-height:1.2;padding:3px 5px;border:1px solid var(--line);background:rgba(255,255,255,.35);color:var(--muted);margin:2px 3px 2px 0;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:11.5px;letter-spacing:.04em;padding:9px 13px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .15s,color .15s,border-color .15s;line-height:1.2}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.accent{border-color:var(--accent);color:var(--accent)}
+.btn.accent:hover{background:var(--accent);color:#fff}
+.btn.ghost{border-color:var(--line);color:var(--muted)}
+.btn.ghost:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.codeblock{background:#20201d;color:#e9e2d3;padding:18px 20px;overflow:auto;font-family:var(--mono);font-size:11.5px;line-height:1.75;border:1px solid #20201d}
+.codeblock .k{color:#d99a6c}
+.codeblock .s{color:#a8c99a}
+.codeblock .c{color:#8e887c}
+.codeblock .n{color:#d7c27a}
+.figure{background:var(--paper-2);border:1px solid var(--line);padding:20px 20px 14px;margin:0;min-width:0}
+.figure-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line-2);padding-bottom:9px;margin-bottom:14px}
+.fig-no{font-family:var(--mono);font-size:9.5px;color:var(--accent);letter-spacing:.08em;white-space:nowrap}
+.fig-title{font-family:var(--serif);font-size:15.5px;line-height:1.4;color:var(--ink)}
+.figure svg{width:100%;height:auto;display:block;overflow:visible}
+.figure.c12 svg{max-width:900px;margin-left:auto;margin-right:auto}
+.figure svg text{font-family:var(--sans)}
+.figcaption{font-size:12px;line-height:1.75;color:var(--muted);border-top:1px solid var(--line-2);padding-top:9px;margin-top:10px}
+.figcaption b{color:var(--ink);font-weight:600}
+.charts{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+[data-filter-tag]{cursor:pointer}
+[data-filter-tag]:hover{opacity:.78}
+.c5{grid-column:span 5}.c7{grid-column:span 7}.c6{grid-column:span 6}.c12{grid-column:span 12}
+.donut-wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.donut-wrap svg{max-width:250px;flex:0 0 210px}
+.legend{display:flex;flex-direction:column;gap:8px;flex:1;min-width:150px}
+.legend-row{display:grid;grid-template-columns:8px 1fr auto;gap:8px;align-items:center;font-size:11.5px;color:var(--ink-2);border-bottom:1px solid var(--line-2);padding-bottom:7px}
+.legend-row:last-child{border-bottom:0;padding-bottom:0}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+.legend-row .cnt{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--muted);font-size:11px}
+.legend-row .pct{color:var(--faint);font-size:10px;margin-left:3px}
+.kw{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.kw-row{display:grid;grid-template-columns:90px 1fr 32px;gap:10px;align-items:center;font-size:11px;color:var(--ink-2)}
+.kw-bar{height:7px;background:var(--line-2);position:relative;overflow:hidden}
+.kw-bar i{display:block;height:100%;background:var(--teal);opacity:.75}
+.kw-row .n{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.finding{display:grid;grid-template-columns:56px minmax(0,1fr);gap:22px;padding:38px 0;border-top:1px solid var(--line)}
+.finding:first-of-type{border-top:0;padding-top:0}
+.finding .idx{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--accent);padding-top:7px}
+.finding h3{margin:0 0 11px;font-size:23px;line-height:1.4}
+.finding .body{min-width:0}
+.finding .body p{max-width:800px}
+.finding .evidence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.answer-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);background:var(--paper-2);margin:26px 0}
+.answer{padding:26px 24px;border-right:1px solid var(--line);min-width:0}
+.answer:last-child{border-right:0}
+.answer .layer{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--accent)}
+.answer h3{font-size:18px;margin:10px 0 8px}
+.answer .verdict{font-family:var(--serif);font-size:23px;line-height:1.35;color:var(--ink);margin:0 0 11px}
+.answer p{font-size:13px;line-height:1.8;margin:0}
+.big-quote{font-family:var(--serif);font-size:clamp(22px,2.8vw,31px);line-height:1.65;color:var(--ink);border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:28px 0;margin:34px 0}
+.big-quote .accent{color:var(--accent)}
+.checklist{list-style:none;margin:16px 0 0;padding:0;counter-reset:item}
+.checklist li{position:relative;padding:0 0 14px 30px;font-size:14px;line-height:1.8;color:var(--ink-2);border-bottom:1px solid var(--line-2);margin-bottom:14px}
+.checklist li:last-child{border-bottom:0;margin-bottom:0}
+.checklist li::before{counter-increment:item;content:"0" counter(item);position:absolute;left:0;top:2px;font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.06em}
+.report{background:var(--paper-2);border:1px solid var(--line);padding:clamp(22px,4vw,52px);max-width:920px;margin:0 auto}
+.report-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:30px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.report-kicker{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.report-title{font-family:var(--serif);font-size:clamp(25px,3vw,34px);line-height:1.4;letter-spacing:-.01em;color:var(--ink);margin:0 0 8px;font-weight:600}
+.report-byline{font-size:11.5px;color:var(--muted);margin:0 0 24px;padding-bottom:18px;border-bottom:1px solid var(--line-2);letter-spacing:.02em}
+.report h4{font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--ink);margin:20px 0 7px;letter-spacing:.01em}
+.legend-inline{display:flex;flex-wrap:wrap;gap:12px;font-size:10px;color:var(--muted);margin:0 0 6px}
+.legend-inline span{display:inline-flex;align-items:center;gap:5px}
+.legend-inline i{width:7px;height:7px;display:inline-block;border-radius:50%}
+.map-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 14px;margin-top:12px;font-size:10px;color:var(--muted);line-height:1.5}
+.map-legend .mi{display:flex;gap:6px;align-items:baseline}
+.map-legend .mi b{font-family:var(--mono);font-size:10px;color:var(--ink);font-weight:600;flex:0 0 auto}
+.map-legend .mi span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:900px){.map-legend{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.map-legend{grid-template-columns:1fr}}
+.report h1{font-family:var(--serif);font-size:clamp(26px,3.2vw,36px);line-height:1.35;margin:0 0 8px;letter-spacing:-.01em}
+.report h2{font-size:20px;margin:32px 0 12px;line-height:1.45}
+.report h3{font-size:16px;margin:22px 0 8px}
+.report p{font-size:14.5px;line-height:1.95;margin:0 0 13px}
+.report .abstract{font-size:14px;line-height:1.95;border-left:3px solid var(--accent);padding:2px 0 2px 17px;color:var(--ink-2);margin:0 0 18px}
+.report .keywords{font-size:12px;color:var(--muted);margin:0 0 24px}
+.report .keywords b{color:var(--ink-2);font-weight:500}
+.report table{width:100%;border-collapse:collapse;font-size:12.5px;margin:12px 0 18px}
+.report table th{text-align:left;padding:8px;border-bottom:1px solid var(--ink);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:500}
+.report table td{padding:8px;border-bottom:1px solid var(--line-2);color:var(--ink-2);vertical-align:top}
+.report .refs{font-size:12px;line-height:1.8;color:var(--muted);padding-left:20px}
+.report .refs li{margin-bottom:7px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 12px}
+.filter-chip{font-size:10.5px;letter-spacing:.02em;padding:6px 9px;border:1px solid var(--line);background:rgba(255,255,255,.32);color:var(--muted);cursor:pointer;transition:all .12s;white-space:nowrap}
+.filter-chip:hover{border-color:var(--ink);color:var(--ink)}
+.filter-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.search{display:flex;align-items:center;border:1px solid var(--line);background:var(--paper-2);min-width:220px;flex:1 1 220px}
+.search span{font-family:var(--mono);font-size:10px;color:var(--faint);padding-left:10px;letter-spacing:.08em}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:8px 10px;font-family:var(--sans);font-size:12px;color:var(--ink);outline:none}
+.search input::placeholder{color:var(--faint)}
+.filter-meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:0 0 10px;font-size:11px;color:var(--muted)}
+.filter-meta b{color:var(--ink);font-weight:600;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.table-wrap{max-height:780px;overflow:auto;border:1px solid var(--line);background:var(--paper-2);scrollbar-width:thin}
+.coded-table{width:100%;min-width:940px;border-collapse:collapse;font-size:12px}
+.coded-table th:first-child,.coded-table td:first-child{position:sticky;left:0;z-index:2;background:var(--paper-2)}
+.coded-table thead th:first-child{z-index:4;background:#f0e9db}
+.coded-table thead th{position:sticky;top:0;z-index:3;background:#f0e9db;text-align:left;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:500;padding:9px 9px;border-bottom:1px solid var(--ink);white-space:nowrap}
+.coded-table td{padding:10px 9px;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2);line-height:1.7}
+.coded-table tbody tr:hover td{background:#f8f2e5}
+.coded-table .floor{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.coded-table .when{font-family:var(--mono);font-size:10.5px;color:var(--faint);white-space:nowrap}
+.coded-table .author{font-size:11px;white-space:nowrap;max-width:110px;overflow:hidden;text-overflow:ellipsis}
+.coded-table .txt{min-width:340px;max-width:580px}
+.coded-table .note{min-width:150px;font-size:10.5px;color:var(--muted)}
+.coded-table .stance-cell{white-space:nowrap}
+.coded-table .tags-cell{min-width:130px}
+.coded-table tr.is-hidden{display:none}
+.coded-table tr.highlight td{background:#f7e8c8}
+.empty-state{display:none;padding:38px 20px;text-align:center;color:var(--muted);font-size:13px;border:1px solid var(--line);border-top:0;background:var(--paper-2)}
+.source-list{list-style:none;padding:0;margin:16px 0 0;border-top:1px solid var(--line)}
+.source-list li{display:grid;grid-template-columns:54px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line-2);font-size:12.5px;line-height:1.7}
+.source-list .id{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.06em;padding-top:2px}
+.source-list .url{font-family:var(--mono);font-size:10.5px;color:var(--muted);word-break:break-all}
+.footer{border-top:1px solid var(--line);padding:36px 0 54px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
+.footer .mark{font-family:var(--serif);font-size:17px;line-height:1.6}
+.footer .mark span{color:var(--accent)}
+.footer .fine{font-size:10.5px;color:var(--faint);line-height:1.7;max-width:440px;text-align:right}
+.footer .fine a{color:var(--muted);border:0}
+.footer .fine a:hover{color:var(--accent)}
+.hr{height:1px;background:var(--line);border:0;margin:30px 0}
+.mt0{margin-top:0}.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}
+.mb0{margin-bottom:0}.mb8{margin-bottom:8px}.mb16{margin-bottom:16px}.mb24{margin-bottom:24px}
+.nowrap{white-space:nowrap}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.print-only{display:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:1100px){
+  .shell{grid-template-columns:1fr;gap:0;padding:52px 24px 0}
+  .rail{display:none}
+  .topbar-inner{justify-content:flex-start;gap:0;padding:0 20px}
+  .brand{display:none}
+  .topnav{display:flex;width:100%;justify-content:flex-start}
+  .topnav .home-only{display:inline-flex}
+  .stamp{display:none}
+}
+@media (max-width:900px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .c5,.c7,.c6{grid-column:span 12}
+  .stepper{grid-template-columns:repeat(3,1fr);row-gap:0}
+  .step:nth-child(3){border-right:0}
+  .step:nth-child(n+4){border-top:1px solid var(--line-2);margin-top:12px;padding-top:12px}
+  .answer-grid{grid-template-columns:1fr}
+  .answer{border-right:0;border-bottom:1px solid var(--line)}
+  .answer:last-child{border-bottom:0}
+  .qgrid,.finding .evidence{grid-template-columns:1fr}
+  .section-head{grid-template-columns:44px minmax(0,1fr);gap:12px}
+  .sec-num{padding-top:7px}
+  .finding{grid-template-columns:1fr;gap:8px}
+  .finding .idx{padding-top:0}
+}
+@media (max-width:720px){
+  body{font-size:15px}
+  .shell{padding:52px 16px 0}
+  .topbar-inner{padding:0 16px}
+  .hero{padding:30px 0 36px}
+  .section{padding:54px 0}
+  .section-head{grid-template-columns:1fr;gap:2px}
+  .sec-num{padding-top:0}
+  .stepper{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(3){border-right:1px solid var(--line-2)}
+  .step:nth-child(2n){border-right:0}
+  .step:nth-child(n+3){border-top:1px solid var(--line-2);margin-top:12px;padding-top:12px}
+  .card{padding:20px}
+  .figure{padding:14px 12px 12px}
+  .donut-wrap svg{flex:1 1 100%;max-width:100%}
+  .footer{display:block}
+  .footer .fine{text-align:left;margin-top:14px}
+  .report{padding:20px 16px}
+  .filters{gap:6px}
+  .search{flex:1 1 100%}
+}
+@media (max-width:720px){
+  .figure{overflow-x:auto}
+  .figure.c12 svg{min-width:820px}
+  .figure.c12 .fig-note::after{content:" · 可横滑";color:var(--accent)}
+  .table-wrap{overflow-x:auto!important}
+  .topnav{gap:8px;font-size:11px}
+  .topnav .top-cta{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+@media print{
+  .topbar,.rail,.progress,.stepper,.no-print,.filters,.empty-state{display:none!important}
+  #s08 .table-wrap{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .shell{display:block;max-width:none;padding:0}
+  main{padding:0}
+  .hero{padding:0 0 18px}
+  .hero::after,.stamp{display:none}
+  .section{padding:20px 0;break-inside:avoid}
+  .section-head{margin-bottom:14px}
+  .figure,.card,.qcard,.report{break-inside:avoid}
+  .report{border:0;padding:0;max-width:none}
+  a{color:#000;border:0}
+  .charts{display:block}
+  .charts>*{margin-bottom:14px}
+}
+</style>
+<style>
+.hero::after{content:"435"}
+.sample-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;border-bottom:1px solid var(--line);padding-bottom:0}
+.sample-tab{font-size:11.5px;letter-spacing:.03em;padding:9px 14px;border:1px solid var(--line);border-bottom:0;background:var(--paper-3);color:var(--muted);cursor:pointer}
+.sample-tab:hover{color:var(--ink)}
+.sample-tab[aria-selected="true"]{background:var(--paper-2);color:var(--ink);border-color:var(--ink);font-weight:600}
+.sample-panel{padding-top:4px}
+.sample-panel[hidden]{display:none}
+@media print{
+  .sample-tabs{display:none!important}
+  .sample-panel{display:none!important}
+  .print-only{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html" title="返回王吉彬学习小站">← 王吉彬学习小站 <span>/</span> 0001</a>
+    <nav class="topnav" aria-label="章节导航">
+      <a class="home-only" href="index.html">小站</a>
+      <a href="#s00">摘要</a>
+      <a href="#s01">选题</a>
+      <a href="#s02">设计</a>
+      <a href="#s03">语料</a>
+      <a href="#s04">计量</a>
+      <a href="#s05">发现</a>
+      <a href="#s06">结论</a>
+      <a href="#s07">报告</a>
+      <a href="#s08">附录</a>
+      <a class="top-cta" href="#s08">435 条数据</a>
+    </nav>
+  </div>
+</header>
+<div class="shell">
+  <aside class="rail" aria-label="目录">
+    <p class="rail-title">Contents / 目录</p>
+    <nav>
+      <a href="#s00"><span class="n">00</span><span>摘要</span></a>
+      <a href="#s01"><span class="n">01</span><span>选题</span></a>
+      <a href="#s02"><span class="n">02</span><span>设计与编码</span></a>
+      <a href="#s03"><span class="n">03</span><span>语料</span></a>
+      <a href="#s04"><span class="n">04</span><span>计量</span></a>
+      <a href="#s05"><span class="n">05</span><span>发现</span></a>
+      <a href="#s06"><span class="n">06</span><span>结论</span></a>
+      <a href="#s07"><span class="n">07</span><span>研究报告</span></a>
+      <a href="#s08"><span class="n">08</span><span>附录</span></a>
+    </nav>
+    <div class="rail-foot">
+      <a class="rail-home" href="index.html">← 返回小站首页</a>
+      <b>编号</b>No. 0001 · 2026-11-18<br>
+      <b>语料</b>
+      主帖 174 楼 · 旧帖 261 楼<br>435 楼全样本<br>2026-10-13 至 11-18
+    </div>
+  </aside>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="kicker">Independent research / 两个帖子的内容分析</div>
+      <h1 id="hero-title">从「能不能」<br>到「<em>谁说了算</em>」</h1>
+      <p class="subtitle">两场相隔一个月的 V2EX 争论，同一位楼主，近乎同一个问题——「马克思的按需分配，能实现吗」。一共 435 条回复：一场 4 小时 174 楼，一场 11 天 261 楼；其中一条，是把 142 楼版本的研究报告发回原帖（主帖 #162）。本页把这 435 条逐条编码，展示从选题、编码、统计到结论与报告的完整过程。</p>
+      <div class="meta-row">
+        <span class="meta"><strong>435</strong> 条回复</span>
+        <span class="meta"><strong>285</strong> 位作者</span>
+        <span class="meta"><strong>2</strong> 个帖子</span>
+        <span class="meta"><strong>4 小时 31 分</strong> + <strong>11 天</strong></span>
+        <span class="meta"><strong>20,934</strong> 次浏览</span>
+        <span class="meta">编码 <strong>435/435</strong></span>
+      </div>
+      <div class="stamp" aria-hidden="true"><b>双样本</b>435 楼<br>逐条编码</div>
+      <div class="stepper" aria-label="研究流程">
+        <div class="step"><div class="num">STEP 01</div><div class="name">选题</div><div class="desc">把不可裁决的规范命题，改成可比较的话语问题</div></div>
+        <div class="step"><div class="num">STEP 02</div><div class="name">设计</div><div class="desc">同一套编码手册，覆盖两个帖子</div></div>
+        <div class="step"><div class="num">STEP 03</div><div class="name">语料</div><div class="desc">抓取 5 页、解析 435 楼、修正边界错误</div></div>
+        <div class="step"><div class="num">STEP 04</div><div class="name">编码</div><div class="desc">一楼一主立场、多标签，含研究者本人的回复</div></div>
+        <div class="step"><div class="num">STEP 05</div><div class="name">计量</div><div class="desc">分布、组合、分钟级与天级演化、跨样本对照</div></div>
+        <div class="step"><div class="num">STEP 06</div><div class="name">成文</div><div class="desc">分层结论、反身性事件、研究局限与完整报告</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="s00" aria-labelledby="s00-title">
+      <div class="section-head">
+        <div class="sec-num">00</div>
+        <div>
+          <div class="sec-kicker">Abstract</div>
+          <h2 id="s00-title">先看结论，再看它是怎么来的</h2>
+        </div>
+      </div>
+      <div class="cards g4">
+        <div class="stat red"><div class="v">49.7<small>%</small></div><div class="l">明确否定：216 / 435 条（主帖 58.0%，旧帖 44.1%）</div></div>
+        <div class="stat gold"><div class="v">71</div><div class="l">「有条件成立」：16.3%；其中 <b>17 条</b>同时怀疑自己的前提可达</div></div>
+        <div class="stat blue"><div class="v">127</div><div class="l">经验与历史案例：29.2%，全场第一论证资源</div></div>
+        <div class="stat green"><div class="v">0</div><div class="l">主帖 #162 之后 12 条回复中，直接回应研究报告的数量</div></div>
+      </div>
+      <div class="prose mt24">
+        <p class="lede">一个 4 小时、174 楼的当日争论，加上一个 11 天、261 楼的长尾讨论，为同一个规范问题提供了 435 条可编码的论证动作。两个帖子相隔一个月、楼主相同、问题几乎相同，却长出了不同的论证结构：短窗口更对立、更爱谈人性与需求定义；长尾更爱搬历史案例、更常转向元讨论。本研究把这个差异本身当作结果，而不只是把两个帖子合并成一个更大的百分比。</p>
+        <p>合并样本中，明确否定占 <b>49.7%</b>，有条件成立 <b>16.3%</b>，明确肯定仅 <b>1.1%</b>；只看对可行性作出裁决的 292 条，否定率为 <b>74.0%</b>。第一论证资源不是人性，也不是稀缺，而是<b>经验与历史案例</b>（127 条，29.2%）；人性以 124 条（28.5%）紧随其后，意识形态与道德审判 118 条（27.1%）排第三。稀缺只有 64 条（14.7%）——它在直觉上很重要，在发言里并没有那么常用。</p>
+        <p>时间形态的差异比总量更有信息量。主帖按楼层三等分，否定占比 56.9% → 62.1% → 55.2%，分配权标签 1 → 11 → 12 条；旧帖的三段则是 46.0% → 43.7% → 42.5%，分配权标签 18 → 12 → <b>4</b> 条。主帖在 4 小时内出现「权力转向」；旧帖在 11 天里反而把权力话题谈淡了，元讨论从第一天的 16.7% 升到长尾的 <b>37.3%</b>。同一问题，短窗口把争论推向制度，长尾把争论推向「这帖还值不值得谈」。</p>
+        <p>最后是一个反身性事件。研究者在 14:29:37 把 142 楼版本报告发回原帖（#162）；接下来的 23 分钟里新增 12 条回复，<b>没有一条直接回应报告</b>，其中 9 条仍是否定（75.0%），分配权标签为 0。报告被投回被研究的场域，却没有改变场域的论证方式。这提醒我们：网络争论的价值可能不在于被说服，而在于它持续生产可供分析的立场与理由。</p>
+      </div>
+      <div class="big-quote">一句话结论：<span class="accent">按需分配的难点，最终不在「需」，而在「谁定义需、谁掌握分配」。</span></div>
+      <div class="cards g2 mt24">
+        <div class="card">
+          <div class="card-label">Read me / 阅读提示</div>
+          <p class="small mb8">页面上半部分是研究过程：选题矩阵、编码手册、语料核对、统计图表。下半部分是 8 条发现、分层结论、争论地图和一份可直接阅读/打印的研究报告。所有引语都标注楼层号，附录可逐条核对 435 条编码。</p>
+          <p class="small mb0"><b>楼层编号规则：</b>两个帖子都有 #162，因此正文写作「主 #162」或「旧 #162」；单独出现且上下文明确时，沿用原帖的「#」。附录分两个标签页，主帖行 ID 为 <span class="mono">f</span> 前缀，旧帖为 <span class="mono">o</span> 前缀，互不冲突。本研究是描述性的，不对「按需分配是否应当实现」作规范性裁决。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Source / 两个原始帖子</div>
+          <p class="small mb8"><b>主帖</b>《马克思的按需分配，能实现吗》，楼主 space2020，2026-11-18 10:14:18 发布，174 楼，6751 次浏览，标签：按需分配 / 社会主义 / 物质基础。<br><a href="https://global.v2ex.co/t/1257906?p=1" target="_blank" rel="noopener">第 1 页（1–100 楼）</a> · <a href="https://global.v2ex.co/t/1257906?p=2" target="_blank" rel="noopener">第 2 页（101–174 楼）</a></p>
+          <p class="small mb8"><b>旧帖</b>《马克思的按需分配，是不是高估了人性？》，同一楼主，2026-10-13 发布、10-24 最后回复，261 楼，14,183 次浏览，标签：马克思 / 按需分配 / 人性。<br><a href="https://v2ex.com/t/1248284?p=1" target="_blank" rel="noopener">第 1 页（1–100 楼）</a> · <a href="https://v2ex.com/t/1248284?p=2" target="_blank" rel="noopener">第 2 页（101–200 楼）</a> · <a href="https://v2ex.com/t/1248284?p=3" target="_blank" rel="noopener">第 3 页（201–261 楼）</a></p>
+          <p class="small mb0"><b>版本说明：</b>主 #162 的报告写的是「142 楼」；那是 13:32 的版本。主帖此后继续增长到 174 楼，本页按 174 楼重新编码，因此 #162 之后多出 32 条回复（143–174），报告里的旧数字与本页数字会有差异。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="s01" aria-labelledby="s01-title">
+      <div class="section-head">
+        <div class="sec-num">01</div>
+        <div>
+          <div class="sec-kicker">Topic selection</div>
+          <h2 id="s01-title">先别急着回答，<span class="accent">先决定研究什么</span></h2>
+          <p class="section-intro">原帖问的是一个规范性问题：「马克思的按需分配，能实现吗？」这类问题很容易变成立场互射：信的人引经据典，不信的人谈人性。直接回答它，需要一整套政治哲学与经济学论证，远超两个论坛帖子的证据能力。</p>
+        </div>
+      </div>
+      <div class="prose">
+        <p>所以选题的第一步不是「我支持哪边」，而是「我手上有什么材料、能回答哪一类问题」。我手上有的不是民意样本，也不是马克思的完整文本，而是两场真实发生的争论：435 条公开回复、285 位作者、两种完全不同的时间尺度。它能支持的问题，不是「按需分配是否应当实现」，而是「人们如何论证它能不能实现，以及这种论证会不会随时间改变」。</p>
+        <p>我把可能衍生的问题列成六个候选，用五项标准打分。可回答性与数据匹配决定「能不能做」；公共价值决定「值不值得做」；伦理风险与工作量决定「成本有多高」。后两项分数越低越好，因此在总分中取反。旧帖的出现让 P4（跨样本比较）从备选升为正式设计的一部分。</p>
+      </div>
+      <div class="table-wrap mt24" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="候选研究问题评分矩阵">
+          <thead>
+            <tr><th style="width:6%">编号</th><th style="width:34%">候选研究问题</th><th class="center">可回答</th><th class="center">数据匹配</th><th class="center">公共价值</th><th class="center">伦理风险</th><th class="center">工作量</th><th class="center">总分</th><th style="width:20%">处理</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">P1</td><td>按需分配在规范/经济学意义上能否成立？</td>
+              <td class="center num">2</td><td class="center num">2</td><td class="center num">5</td><td class="center num">1</td><td class="center num">3</td><td class="center score">17</td>
+              <td>作为背景问题，不作主课题：需要理论论证，帖子无法裁决。</td>
+            </tr>
+            <tr>
+              <td class="num">P2</td><td>物质基础是否决定人的道德？</td>
+              <td class="center num">2</td><td class="center num">1</td><td class="center num">4</td><td class="center num">1</td><td class="center num">3</td><td class="center score">15</td>
+              <td>不选：因果识别需要纵向数据，本语料只有横截面发言。</td>
+            </tr>
+            <tr class="selected">
+              <td class="num">P3</td><td><b>参与者如何论证按需分配的可行性？</b></td>
+              <td class="center num">5</td><td class="center num">5</td><td class="center num">4</td><td class="center num">2</td><td class="center num">4</td><td class="center score">20</td>
+              <td><b>选中。</b>可观察、可编码、可复算；把规范命题降维成话语描述。</td>
+            </tr>
+            <tr class="selected">
+              <td class="num">P4</td><td><b>相隔一个月的两场争论，论证结构是否相同？</b></td>
+              <td class="center num">5</td><td class="center num">5</td><td class="center num">4</td><td class="center num">2</td><td class="center num">3</td><td class="center score">21</td>
+              <td><b>选中。</b>同一楼主、同一问题、不同时间尺度，构成天然对照。</td>
+            </tr>
+            <tr>
+              <td class="num">P5</td><td>论坛讨论能否代表公共审议？</td>
+              <td class="center num">2</td><td class="center num">2</td><td class="center num">5</td><td class="center num">2</td><td class="center num">4</td><td class="center score">15</td>
+              <td>不选：范围过大，两帖无法支撑「公共审议」的总体判断。</td>
+            </tr>
+            <tr>
+              <td class="num">P6</td><td>把报告发回原帖，会改变讨论吗？</td>
+              <td class="center num">3</td><td class="center num">4</td><td class="center num">4</td><td class="center num">3</td><td class="center num">2</td><td class="center score">18</td>
+              <td>并入 P3：作为 #162 的个案观察，不单独立题。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">评分均为 1–5 分，作者自评。总分 = 可回答 + 数据匹配 + 公共价值 + (6 − 伦理风险) + (6 − 工作量)。评分不是客观测量，而是把选题取舍公开，方便读者质疑。</p>
+
+      <div class="cards g2 mt32">
+        <div class="card accented">
+          <div class="card-label">Decision / 选题决定</div>
+          <h3>把「能不能」改成「人们怎么说」</h3>
+          <p>选定 P3 + P4：<b>不直接回答「按需分配能否实现」，而是研究「两场讨论如何回答它、为什么给出不同答案的形状」。</b>这不是逃避原问题，而是先把不可裁决的规范命题，转化为可观察、可复核的话语结构；对原问题的实质性回答，放在第 06 节以「分层结论」给出。</p>
+          <p class="small mb0">降维的代价：结论只适用于这两个样本，不能外推为「公众怎么看」。收益：每一个判断都能回到楼层与原文，而不是另一种立场宣言。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Research questions / 研究问题</div>
+          <p class="small mb8"><b>RQ1 立场结构：</b>435 条回复中，「能」「不能」「有条件」「不裁决」各占多少？两个帖子有何差异？</p>
+          <p class="small mb8"><b>RQ2 论证资源：</b>参与者动用了哪些理由？哪些理由与哪些立场绑定？两个帖子的理由结构是否相同？</p>
+          <p class="small mb8"><b>RQ3 时间形态：</b>分钟级的短窗口与天级的长尾，分别把论证推向哪里？</p>
+          <p class="small mb8"><b>RQ4 互动形态：</b>这是对话，还是并行独白？旧帖的二人缠斗改变了什么？</p>
+          <p class="small mb0"><b>RQ5 反身性：</b>研究者把报告发回原帖后，讨论发生了什么？</p>
+        </div>
+      </div>
+
+      <h3>编码前写下的五个预期</h3>
+      <p class="prose">为了防止「看完数据再编故事」，我在逐条编码前写下五个可被推翻的预期。下表同时给出编码后的结果；其中 H2 被数据推翻，H3 只在一个样本里成立，H5 则以「没有反应」的方式落空。这些意外比验证本身更有价值。</p>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="研究预期与结果对照">
+          <thead><tr><th style="width:6%">编号</th><th style="width:30%">编码前的预期</th><th style="width:42%">编码后的结果</th><th style="width:22%">判定</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num">H1</td>
+              <td>明确否定会占多数，但「有条件成立」会多于「明确肯定」。</td>
+              <td>明确否定 216 条（49.7%）；有条件成立 71 条（16.3%）；明确肯定 5 条（1.1%）。两帖均如此。</td>
+              <td><b>成立。</b>否定是多数，但「条件」留了一道窄门。</td>
+            </tr>
+            <tr>
+              <td class="num">H2</td>
+              <td>人性与稀缺会是最常被调用的两种理由。</td>
+              <td>经验与案例 127 条（29.2%）排第 1；人性 124 条（28.5%）第 2；意识形态/审判 118 条（27.1%）第 3；文本考据 89 条（20.5%）第 4；需求定义 88 条（20.2%）第 5；生产力 85 条（19.5%）第 6；稀缺 64 条（14.7%）第 8。</td>
+              <td><b>不成立。</b>人性仍是主轴，稀缺不是；「拿例子说话」才是第一理由。</td>
+            </tr>
+            <tr>
+              <td class="num">H3</td>
+              <td>讨论越往后，元讨论与概念质疑会上升，权力议题也会上升。</td>
+              <td>主帖：D+E 20.7% → 24.1% → 34.5%，T3 1 → 11 → 12 条；旧帖：D+E 32.2% → 40.2% → 39.1%，T3 18 → 12 → 4 条。</td>
+              <td><b>只在主帖成立。</b>旧帖的权力话题是「先热后冷」。</td>
+            </tr>
+            <tr>
+              <td class="num">H4</td>
+              <td>长尾样本会更偏元讨论与历史经验，短窗口更偏人性与即时判断。</td>
+              <td>旧帖 E 20.7% vs 主帖 12.6%；T10 35.2% vs 20.1%；T1 31.8% vs 23.6%。中位长度 63 vs 40 字。</td>
+              <td><b>成立。</b>时间尺度改变了「什么算理由」。</td>
+            </tr>
+            <tr>
+              <td class="num">H5</td>
+              <td>研究报告发回原帖后，会引发对研究本身的直接讨论。</td>
+              <td>#162 之后 12 条回复，0 条直接回应报告；9 条否定（75.0%）；T3 为 0； #161 仍在嘲讽「一个月来一次」。</td>
+              <td><b>落空。</b>反身性事件没有改变场域。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">这五个预期是研究设计的一部分，不是事后总结。H2 的失败直接改变了报告的标题：从「人性与稀缺之争」改为「从『能不能』到『谁说了算』」；H3 的样本差异则要求把「权力转向」限定为主帖现象，而不是普遍规律。</p>
+    </section>
+
+
+    <section class="section" id="s02" aria-labelledby="s02-title">
+      <div class="section-head">
+        <div class="sec-num">02</div>
+        <div>
+          <div class="sec-kicker">Design &amp; coding</div>
+          <h2 id="s02-title">把「我觉得」变成<span class="accent">可复核的编码</span></h2>
+          <p class="section-intro">内容分析最容易出问题的地方，是让结论悄悄决定分类。为了避免这一点，我先固定分析单位、立场定义和标签清单，再用同一套手册编码两个帖子；遇到边界案例，按事先写好的规则裁决，而不是按「哪种说法更顺眼」裁决。</p>
+        </div>
+      </div>
+      <div class="prose">
+        <p><b>分析单位是一条回复（1 楼），不是一个人。</b>同一个人多次发言分别计数，因为同一个人可能在不同楼层扮演不同角色：先给条件，再补论证，最后转向元讨论。每条回复获得 <b>1 个主立场 + 若干论证标签</b>：主立场回答「它对可行性下了什么判断」，标签回答「它动用了什么理由」。两个帖子共用同一套代码，因此可以直接比较；但比较的单位仍是「回复」，不是「人」。</p>
+      </div>
+      <div class="codeblock mt16" aria-label="编码数据结构示例">
+<span class="c">// 一条编码记录的结构（示例为主帖第 162 楼，研究者本人发布的报告）</span>
+{
+  <span class="k">"floor"</span>: <span class="n">162</span>,
+  <span class="k">"author"</span>: <span class="s">"itopidea"</span>,
+  <span class="k">"stance"</span>: <span class="s">"E"</span>,              <span class="c">// 元讨论：谈研究本身，不裁决可行性</span>
+  <span class="k">"tags"</span>: [<span class="s">"T12"</span>],           <span class="c">// 元讨论</span>
+  <span class="k">"report"</span>: <span class="n">true</span>,            <span class="c">// 标记为「研究者报告」，但不享有编码特权</span>
+  <span class="k">"note"</span>: <span class="s">"研究者发布 142 楼版本报告、结论与原始材料地址"</span>
+}
+      </div>
+
+      <h3>主立场：五类，互斥</h3>
+      <p class="prose">主立场按「收束句的言语行为」裁决：一条回复可以先铺陈条件、再给结论；编码取它最后落在哪里。若同一条回复既说「可以」又说「但不可能」，则看它是否仍保留一个可成立的条件——保留则为 B，取消则为 A。</p>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="主立场编码定义与两样本分布">
+          <thead><tr><th style="width:7%">代码</th><th style="width:15%">立场</th><th class="center" style="width:9%">主帖</th><th class="center" style="width:9%">旧帖</th><th class="center" style="width:9%">合计</th><th style="width:32%">判定规则</th><th style="width:19%">示例</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chip st-A"><span class="dot"></span>A</span></td><td><b>明确否定</b></td><td class="num center">101</td><td class="num center">115</td><td class="num center"><b>216</b></td><td>对命题给出否定性裁决，包括「不可能 / 乌托邦 / 反人性 / 垃圾堆」，以及以反问收束的否定性论断。</td><td>主 #63「只要人的欲望存在，就不可能实现」</td></tr>
+            <tr><td><span class="chip st-B"><span class="dot"></span>B</span></td><td><b>有条件成立</b></td><td class="num center">25</td><td class="num center">46</td><td class="num center"><b>71</b></td><td>明确说「可以，但前提是……」，无论它是否认为前提可达；条件包括物质极大丰富、AI、觉悟、制度、局部场景。</td><td>主 #20「当然可以，但有前提」</td></tr>
+            <tr><td><span class="chip st-C"><span class="dot"></span>C</span></td><td><b>明确肯定</b></td><td class="num center">2</td><td class="num center">3</td><td class="num center"><b>5</b></td><td>明确预期会实现，或认为已经实现，且不把结论主要挂在不可达的前提上。</td><td>主 #99「我觉得按需分配一定会实现」</td></tr>
+            <tr><td><span class="chip st-D"><span class="dot"></span>D</span></td><td><b>概念悬置</b></td><td class="num center">24</td><td class="num center">43</td><td class="num center"><b>67</b></td><td>不裁决可行性，转而追问「需怎么定义 / 谁来分配 / 觉悟如何衡量 / 语义是否漂移」；若用定义问题直接推出「不可能」，则归 A。</td><td>主 #128「先精确定义什么叫按需」</td></tr>
+            <tr><td><span class="chip st-E"><span class="dot"></span>E</span></td><td><b>元讨论</b></td><td class="num center">22</td><td class="num center">54</td><td class="num center"><b>76</b></td><td>讨论帖子、论坛、发帖动机、审查、信仰或与命题无关的引申，不针对「按需分配能否实现」本身。</td><td>主 #162 研究者报告；旧 #54 论坛风气</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">三列分别为 174、261、435 条的分母。百分比见第 04 节。主帖 #162 是研究者本人，仍按同一手册编码为 E，而不是按「报告支持哪一方」编码。</p>
+
+      <h3>论证标签：十四类，可多选</h3>
+      <p class="prose">标签不是「回复的主题」，而是「回复动用的理由」。一条回复可以同时谈人性与稀缺，也可以一边否定一边给出历史案例。标签统计因此不能相加为 435，只能说明各类理由被多少条回复调用。两个帖子的标签总和分别为 337 与 667，合计 1004 次。</p>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="论证标签编码定义与两样本分布">
+          <thead><tr><th style="width:7%">代码</th><th style="width:17%">标签</th><th class="center" style="width:9%">主帖</th><th class="center" style="width:9%">旧帖</th><th class="center" style="width:9%">合计</th><th style="width:49%">含义</th></tr></thead>
+          <tbody>
+            <tr><td class="num">T1</td><td>人性与欲望</td><td class="num center">41</td><td class="num center">83</td><td class="num center">124</td><td>把可行性归因于自私、贪婪、好逸恶劳、欲望无穷、地位竞争。</td></tr>
+            <tr><td class="num">T2</td><td>稀缺与物理限制</td><td class="num center">29</td><td class="num center">35</td><td class="num center">64</td><td>资源有限；土地、位置、能源、重金属、物理定律无法无限供应。</td></tr>
+            <tr><td class="num">T3</td><td>分配权与监督</td><td class="num center">24</td><td class="num center">34</td><td class="num center">58</td><td>谁来分配；分配者拥有权力；腐败、官僚、特权、监督缺位。</td></tr>
+            <tr><td class="num">T4</td><td>需求定义与语义</td><td class="num center">37</td><td class="num center">51</td><td class="num center">88</td><td>「需」无法定义；基本需求与高级需求之别；语义漂移；谁有资格定义合理需求。</td></tr>
+            <tr><td class="num">T5</td><td>生产力与极大丰富</td><td class="num center">19</td><td class="num center">66</td><td class="num center">85</td><td>物质能否极大丰富；生产力是否足够；可控核聚变、能源无限。</td></tr>
+            <tr><td class="num">T6</td><td>制度与激励</td><td class="num center">27</td><td class="num center">36</td><td class="num center">63</td><td>按劳分配、大锅饭、福利社会、市场经济、法律与惩罚、制度设计。</td></tr>
+            <tr><td class="num">T7</td><td>思想觉悟</td><td class="num center">9</td><td class="num center">6</td><td class="num center">15</td><td>觉悟能否提高、能否客观衡量；精神文明是否可靠。</td></tr>
+            <tr><td class="num">T8</td><td>技术路径</td><td class="num center">9</td><td class="num center">24</td><td class="num center">33</td><td>AI、机器人、自动化、虚拟世界、天网、机器决策。</td></tr>
+            <tr><td class="num">T9</td><td>文本与作者考据</td><td class="num center">24</td><td class="num center">65</td><td class="num center">89</td><td>社会主义/共产主义阶段论、马克思原意、马克思个人经历。</td></tr>
+            <tr><td class="num">T10</td><td>经验与历史案例</td><td class="num center">35</td><td class="num center">92</td><td class="num center">127</td><td>北欧、自助餐、洗手液、粮票、苏联、红色高棉、中国改革、企业家行为、共享单车。</td></tr>
+            <tr><td class="num">T11</td><td>意识形态与道德审判</td><td class="num center">44</td><td class="num center">74</td><td class="num center">118</td><td>「害人」「垃圾」「反人类」「宗教」「低认知」等标签式判断，通常不展开论证。</td></tr>
+            <tr><td class="num">T12</td><td>元讨论</td><td class="num center">19</td><td class="num center">61</td><td class="num center">80</td><td>论坛风气、发帖动机、审查、重复发帖、讨论是否有意义。</td></tr>
+            <tr><td class="num">T13</td><td>文化类比</td><td class="num center">10</td><td class="num center">22</td><td class="num center">32</td><td>三体、火影、黑客帝国、哆啦 A 梦、天堂/宗教叙事等虚构或宗教类比。</td></tr>
+            <tr><td class="num">N</td><td>无论证断言</td><td class="num center">10</td><td class="num center">18</td><td class="num center">28</td><td>只有结论，没有给出任何理由。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">标签为多选，一行可同时有多个标签。T4 的 88 条并不等于 88 个人：同一个人可以在多条回复里反复追问「需是什么」。</p>
+
+      <h3>三个二级标记：条件、让步与反身性</h3>
+      <div class="cards g3 mt16">
+        <div class="card">
+          <div class="card-label">DOUBT / 条件存疑</div>
+          <p class="small mb8"><b>17 条</b>（主 8 / 旧 9）有条件成立回复，同时明说自己的前提难以达到。例：主 #20「不过这个前提几乎不可能达到」。</p>
+          <p class="small mb0">这些回复在立场上仍算 B，但在语用上接近「礼貌的否定」。B 的 71 条中有 23.9% 属于此类；主帖比例更高（8/25 = 32.0%）。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">BASIC / 基本需求可行</div>
+          <p class="small mb8"><b>20 条</b>（主 8 / 旧 12）明确承认「基本生存 / 福利兜底」意义上的按需分配已经实现或可以实现。例：主 #18 的低保、旧 #162 的米饭。</p>
+          <p class="small mb0">这是两帖唯一稳定收敛的区间：不是「无限欲望」，而是「活下去」。第 06 节的三层结论即由此而来。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">REPORT &amp; CROSS / 反身性与跨帖</div>
+          <p class="small mb8"><b>1 条报告</b>：主 #162，研究者发布 142 楼版本。它被编码为 E/T12，不享有任何特权，也不作为支持某方立场的证据。</p>
+          <p class="small mb0"><b>5 条跨帖链接</b>：主 #60、#85、#113、#161、#171 指向旧帖 t/1248284。标记为 CROSS，但不把旧帖内容算进主帖论证次数。</p>
+        </div>
+      </div>
+
+      <h3>七条裁决规则</h3>
+      <ol class="checklist">
+        <li><b>看收束句，不看开场白。</b>先复述对方观点、再反驳的回复，按最后落点编码；反问句若显然是否定修辞（「怎么按需分配？」），归 A。</li>
+        <li><b>B 的门槛是「保留一个可成立的条件」。</b>「可以，但前提几乎不可能」仍是 B；「如果……才可能，所以不可能」则是 A。区别在于条件是否被作者自己取消。</li>
+        <li><b>D 与 A 的分界是「是否裁决」。</b>追问定义但不给结论 = D；用「定义不清」直接推出「所以不可能」= A。主 #128 属于前者，主 #141 属于后者。</li>
+        <li><b>E 与 D 的分界是「对象」。</b>谈概念、语义、分配权 = D；谈帖子、论坛、发帖动机、审查 = E。E 可以带 T11（审判），但主立场仍是 E。</li>
+        <li><b>标签记「理由」，不记「主题」。</b>「马克思说过……」只是背景引用，不标 T9；只有当文本被用来支持或反驳可行性时才标。标签不设数量上限，但避免把寒暄算成论证。</li>
+        <li><b>研究者本人的回复不享有特权。</b>主 #162 是报告，不是证据；它不改变任何编码，也不参与「哪种立场更对」的判断。它的作者身份只影响第 05 节 F8 的反身性分析。</li>
+        <li><b>跨帖提及不合并语料。</b>主帖里引用旧帖，仍算主帖的一条回复；旧帖的原文只在其自己的样本中计数。两帖作者有重叠，合并统计时不能当作 435 个独立个体。</li>
+      </ol>
+
+      <h3>信度：可重复，但不等于双人独立编码</h3>
+      <p class="prose">主编码完成后，以固定随机种子抽取 24 楼做延迟复核：主立场一致 <b>24/24</b>。这只能说明编码规则可重复执行，不能替代双人独立编码，也不能计算 κ 系数。复核样本来自 142 楼版本；新增的 143–174 楼与旧帖 261 楼只经过一次编码，未进入延迟复核。标签的主观度高于主立场，因此本文只报告样本内的描述统计，不作总体推断。</p>
+
+      <h3>六个边界案例</h3>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="编码边界案例">
+          <thead><tr><th style="width:10%">楼层</th><th style="width:30%">原文（节选）</th><th style="width:12%">编码</th><th style="width:48%">为什么</th></tr></thead>
+          <tbody>
+            <tr><td class="num">主 #63</td><td>「只要人的欲望存在，就不可能实现」</td><td><span class="chip st-A"><span class="dot"></span>A</span> T1</td><td>单句否定，理由明确（欲望），没有保留条件。</td></tr>
+            <tr><td class="num">主 #20</td><td>「当然可以，但有前提……不过这个前提几乎不可能达到」</td><td><span class="chip st-B"><span class="dot"></span>B</span> T5 T1 <span class="tiny">DOUBT</span></td><td>仍保留「物质极大丰富」这一条件，所以是 B；但作者自己怀疑前提可达，标 DOUBT。</td></tr>
+            <tr><td class="num">主 #128</td><td>「能不能先精确定义一下什么叫『按需』？」</td><td><span class="chip st-D"><span class="dot"></span>D</span> T4</td><td>只追问定义，没有裁决可行性；不是 A。</td></tr>
+            <tr><td class="num">主 #162</td><td>研究者发布 142 楼版本报告与结论</td><td><span class="chip st-E"><span class="dot"></span>E</span> T12 <span class="tiny">REPORT</span></td><td>谈研究本身，不裁决命题；作者身份不改变编码。</td></tr>
+            <tr><td class="num">旧 #32</td><td>「你没见过共享单车？？？这就是物质极大丰富」</td><td><span class="chip st-B"><span class="dot"></span>B</span> T5 T13 T10</td><td>用共享单车作为「丰裕已存在」的例子，隐含「按需可成立」，属条件肯定。</td></tr>
+            <tr><td class="num">旧 #162</td><td>「现在去饭店吃饭，米饭也是按需分配呀」</td><td><span class="chip st-D"><span class="dot"></span>D</span> T4 T10 <span class="tiny">BASIC</span></td><td>把「需」重新定义为米饭，属于概念操作；不直接说「能实现」，故 D 而非 C。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">注意：主 #162 与旧 #162 是两个人、两种编码。这正是附录必须分样本、加前缀的原因。</p>
+    </section>
+
+    <section class="section" id="s03" aria-labelledby="s03-title">
+      <div class="section-head">
+        <div class="sec-num">03</div>
+        <div>
+          <div class="sec-kicker">Corpus</div>
+          <h2 id="s03-title">435 条回复，<span class="accent">以及它们是怎么被拿到的</span></h2>
+          <p class="section-intro">语料不是「网上一搜就有」的干净数据。它有两个帖子、四个页面、一次登录墙、一次解析错位，还有一条由研究者本人发出的回复。这一节记录语料的边界与缺陷，因为后面每一个百分比都依赖它。</p>
+        </div>
+      </div>
+
+      <div class="cards g2">
+        <div class="card accented">
+          <div class="card-label">Sample 01 / 主帖</div>
+          <h3>《马克思的按需分配，能实现吗》</h3>
+          <p class="small mb8">楼主 space2020 · 2026-11-18 10:14:18 发布 · 节点「随想」 · 标签：按需分配 / 社会主义 / 物质基础</p>
+          <p class="small mb8"><b>174 楼</b> · 147 位作者 · 6751 次浏览 · 首楼 10:21:18，末楼 14:52:37 · 首末间隔 <b>4 小时 31 分</b>。1–174 楼连续，无缺楼、无重复楼。</p>
+          <p class="small mb0">两页：第 1 页 1–100 楼，第 2 页 101–174 楼。第 162 楼是研究者本人发布的 142 楼版本报告（14:29:37）。</p>
+        </div>
+        <div class="card accented">
+          <div class="card-label">Sample 02 / 旧帖</div>
+          <h3>《马克思的按需分配，是不是高估了人性？》</h3>
+          <p class="small mb8">同一楼主 space2020 · 2026-10-13 发布 · 标签：马克思 / 按需分配 / 人性</p>
+          <p class="small mb8"><b>261 楼</b> · 166 位作者 · 14,183 次浏览 · 首楼 10-13，末楼 10-24 · 跨度 <b>11 天</b>。1–261 楼连续。</p>
+          <p class="small mb0">三页：1–100、101–200、201–261。时间戳只有日期，没有分钟；因此旧帖只能做「天级」分析，不能还原小时级峰值。</p>
+        </div>
+      </div>
+
+      <h3>语料事实表</h3>
+      <div class="table-wrap mt16" style="max-height:none;overflow:visible">
+        <table class="table" aria-label="两个样本的语料事实">
+          <thead><tr><th style="width:26%">指标</th><th class="center">主帖</th><th class="center">旧帖</th><th class="center">合计 / 备注</th></tr></thead>
+          <tbody>
+            <tr><td>回复数</td><td class="center num">174</td><td class="center num">261</td><td class="center num"><b>435</b></td></tr>
+            <tr><td>作者数（去重）</td><td class="center num">147</td><td class="center num">166</td><td class="center num"><b>285</b>（28 人重叠）</td></tr>
+            <tr><td>浏览数（抓取时）</td><td class="center num">6,751</td><td class="center num">14,183</td><td class="center num">20,934</td></tr>
+            <tr><td>时间跨度</td><td class="center">4 小时 31 分</td><td class="center">11 天</td><td class="center">两种时间尺度</td></tr>
+            <tr><td>中位长度</td><td class="center num">40 字</td><td class="center num">63 字</td><td class="center">旧帖更长</td></tr>
+            <tr><td>平均长度</td><td class="center num">67.3 字</td><td class="center num">103.7 字</td><td class="center">最长 610 / 1312 字</td></tr>
+            <tr><td>含 @ 的回复</td><td class="center num">32（18.4%）</td><td class="center num">115（44.1%）</td><td class="center">合计 147（33.8%）</td></tr>
+            <tr><td>直接裁决可行性（A/B/C）</td><td class="center num">128</td><td class="center num">164</td><td class="center num">292（67.1%）</td></tr>
+            <tr><td>其中否定占比</td><td class="center num">78.9%</td><td class="center num">70.1%</td><td class="center num">74.0%</td></tr>
+            <tr><td>明确承认基本需求可行</td><td class="center num">8</td><td class="center num">12</td><td class="center num">20</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">作者重叠数来自集合运算：147 + 166 − 285 = 28。合并样本时不能把 435 条回复当作 435 个独立个体；同一位作者可能在不同帖子、不同楼层反复发言。</p>
+
+      <div class="cards g2 mt32">
+        <div class="card">
+          <div class="card-label">Parsing / 抓取与解析</div>
+          <p class="small mb8">主帖通过公开页面抓取，结构为 <span class="mono">div[id^="r_"]</span>，楼层号在 <span class="mono">span.no</span>，时间在 <span class="mono">span.ago[title]</span>，正文在 <span class="mono">.reply_content</span>。第 1 页满 100 楼，第 2 页 74 楼，合计 174。</p>
+          <p class="small mb8">旧帖的三页经登录后 HTML 结构基本一致，但被登录墙拦过一次（<span class="mono">/restricted</span>）；最终以登录态页面与逐页文本核对完成解析。三页分别为 100、100、61 楼。</p>
+          <p class="small mb0">解析后做了三项校验：楼层号连续、作者与时间非空、正文不以下一楼作者名开头。第三项曾抓出一个真实 bug：旧帖 #116 的正文尾部漏进了 #117 的作者名，原因是把下一楼锚点减了固定偏移。改为「按下一楼实际 header 起点切」后，261 楼全部对齐。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Boundary / 语料边界</div>
+          <p class="small mb8"><b>能说：</b>两个帖子在抓取时刻的公开回复、作者名、时间与正文；能说「在这两个样本中」的分布、共变与差异。</p>
+          <p class="small mb8"><b>不能说：</b>V2EX 全体用户的意见、两帖之外的人怎么看、点赞/排序/删帖后的「真实共识」。点赞数与用户人口学信息未纳入；旧帖的点赞只在抓取时可见，未做时序分析。</p>
+          <p class="small mb0"><b>非独立性：</b>28 位作者同时出现在两帖；旧帖的 #172–#259 还包含一场二人缠斗（33 条回复）。这些都不是独立观测，不能直接套用独立样本的显著性检验。</p>
+        </div>
+      </div>
+
+      <h3>跨帖引用：五条链接，一次时间错觉</h3>
+      <p class="prose">主帖中有 5 条回复直接链接旧帖（#60、#85、#113、#161、#171）。它们承担的功能不同：#60 与 #161 是「你怎么又来一次」的元评论；#85 与 #113 是把旧帖当作「前情提要」；#171 则在嘲讽楼主「想了 6 年都没想明白」——两分钟后，同一位作者在 #172 自己更正：「看错，是上个月的……」。旧帖实际发布于 2026-10-13，距主帖只有一个月。这个小错误不是语料错误，而是讨论者时间记忆的证据；它也被保留在编码表里。</p>
+      <p class="prose">另一个细节：#161（14:29:37）与研究者的报告 #162（14:29:37）出现在同一分钟。一条在骂「一个月来一次」，一条在发布研究报告；它们并置在同一屏，却几乎没有互相回应。这是第 05 节 F8 的起点。</p>
+
+      <div class="cards g2 mt24">
+        <div class="card">
+          <div class="card-label">Ethics / 研究伦理</div>
+          <p class="small mb0">两帖均为公开论坛内容，无需私信或好友权限；用户名按原文保留，以便读者回查，但不对个人作画像或价值判断。引语只剪裁、不改写，省略处用「……」标出；粗俗与攻击性表达保留在原表中，不在正文重复放大。研究者本人是主帖参与者（#162），这一身份在第 05 节 F8 与第 07 节 4.4 明确披露，并在编码时把报告当作普通 E 类回复。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Language / 语言处理</div>
+          <p class="small mb0">正文保留错别字、表情、网络缩略语与反讽，因为它们是判断立场与语气的线索。编码不依赖自动情感分析：本语料大量使用反讽（「马扁子」「水深火热」「🤡」），词典法会系统性误判。关键词统计只做字面匹配，例如「需」会命中「需要」「需求」「按需」，也会命中「无需」；它描述的是<em>词面热度</em>，不是概念覆盖率。</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="s04" aria-labelledby="s04-title">
+      <div class="section-head">
+        <div class="sec-num">04</div>
+        <div>
+          <div class="sec-kicker">Measurement</div>
+          <h2 id="s04-title">先看分布，<span class="accent">再看它们怎么移动</span></h2>
+          <p class="section-intro">这一节的每张图都对应附录里的逐条编码。主帖按 10 分钟分箱，能看见小时级的起落；旧帖只有日期，只能做天级分析。跨样本比较统一用「占本样本回复的百分比」，因为 174 与 261 的分母不同，直接比条数会误导。</p>
+        </div>
+      </div>
+
+      <div class="charts">
+        <figure class="figure c5" aria-labelledby="fig1-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 01</div><div class="fig-title" id="fig1-title">主帖立场：否定接近六成</div></div>
+            <div class="fig-note">n = 174</div>
+          </div>
+          {{DONUT}}
+          <figcaption class="figcaption"><b>主帖比旧帖更「站队」。</b>明确否定 101 条（58.0%），有条件成立 25 条（14.4%），明确肯定仅 2 条（1.1%），概念悬置 24 条（13.8%），元讨论 22 条（12.6%）。旧帖的对应数字是 44.1% / 17.6% / 1.1% / 16.5% / 20.7%——否定更少，元讨论更多。</figcaption>
+        </figure>
+
+        <figure class="figure c7" aria-labelledby="fig2-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 02</div><div class="fig-title" id="fig2-title">主帖关键词：词面热度，不是概念覆盖率</div></div>
+            <div class="fig-note">字面匹配 · 可多词命中</div>
+          </div>
+          {{KW_ROWS}}
+          <figcaption class="figcaption"><b>「需」出现最多（65 条，37.4%），但这个词面同时命中「需要」「无需」「按需」。</b>它说明「需」是讨论的高频入口，不说明 65 条都在讨论需求定义。对比旧帖：共享单车 19 次、自助餐 8 次、马克思 57 次；主帖则为 0、1、25 次。两个帖子的「例子库」几乎不重叠。</figcaption>
+        </figure>
+
+        <figure class="figure c7" aria-labelledby="fig3-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 03</div><div class="fig-title" id="fig3-title">主帖论证资源：审判第一，人性第二</div></div>
+            <div class="fig-note">多选 · 点击条形可在附录筛选</div>
+          </div>
+          {{TAG_BARS}}
+          <figcaption class="figcaption"><b>主帖声量第一是意识形态/道德审判（44 条，25.3%），不是需求定义。</b>人性 41 条（23.6%）第二，需求定义 37 条（21.3%）第三，经验案例 35 条（20.1%）第四。需求定义不是最大声量，却是概念悬置派最集中的语言（见下图）。</figcaption>
+        </figure>
+
+        <div class="card c5">
+          <div class="card-label">Three readings / 三条读数</div>
+          <h3 style="margin-top:0">不要用一个帖子的直觉，代替两个帖子的分布</h3>
+          <p class="small mb8"><b>1. 经验与案例是合并样本的第一资源（127 条，29.2%），但主要来自旧帖</b>（92 条，35.2%）；主帖只有 35 条（20.1%）。短窗口里，人们更愿意直接下判断，而不是搬历史。</p>
+          <p class="small mb8"><b>2. 生产力条件在旧帖几乎是「有条件成立」的同义词</b>：旧帖 46 条 B 中有 39 条谈 T5（84.8%）；主帖 25 条 B 中只有 13 条（52.0%），条件更分散——文本、觉悟、技术都可以成为前提。</p>
+          <p class="small mb0"><b>3. 稀缺被高估了。</b>它在合并样本中只有 64 条（14.7%），低于审判（118）、文本考据（89）与需求定义（88）。人们嘴上说「稀缺」的次数，远少于他们说「这不就是人性」或「历史上试过了」的次数。</p>
+        </div>
+
+        <figure class="figure c12" aria-labelledby="fig4-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 04</div><div class="fig-title" id="fig4-title">主帖：立场 × 论证标签热力图</div></div>
+            <div class="fig-note">行内归一 · 点击列标题可筛选</div>
+          </div>
+          {{HEATMAP}}
+          <figcaption class="figcaption"><b>立场与理由高度绑定。</b>否定派最常动用人性（34.7%）与审判（30.7%）；条件肯定派最常谈生产力（52.0%）；概念悬置派有 75.0% 在谈需求定义。换句话说，<b>不同立场的人不仅在结论上不同，连「什么算理由」都不同。</b></figcaption>
+        </figure>
+
+        <figure class="figure c12" aria-labelledby="fig5-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 05</div><div class="fig-title" id="fig5-title">主帖时间线：4 小时里的两次高峰</div></div>
+            <div class="fig-note">每格 10 分钟 · 折线为累计</div>
+          </div>
+          {{TIMELINE}}
+          <figcaption class="figcaption"><b>讨论不是匀速的。</b>10:40–10:50（21 条）与 11:20–11:30（20 条）是两个最密集的 10 分钟窗口；11:20–11:25 的 5 分钟内出现 12 条回复（#78–#89），是全程最密集的时段。午后回复变稀：14:00 档 7 条、14:40 档 5 条；#162 报告落在 14:29:37。</figcaption>
+        </figure>
+
+        <figure class="figure c12" aria-labelledby="fig6-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 06</div><div class="fig-title" id="fig6-title">主帖三段演化：从「能不能」到「谁说了算」</div></div>
+            <div class="fig-note">按楼层三等分，58 / 58 / 58 条</div>
+          </div>
+          {{THIRDS}}
+          <figcaption class="figcaption"><b>讨论没有收敛，而是换了问题。</b>否定占比 56.9% → 62.1% → 55.2%；概念悬置 + 元讨论 20.7% → 24.1% → 34.5%；分配权标签 1 → 11 → 12 条。<b>最后三分之一，参与者开始问「谁来分配」，而不是「能不能」。</b></figcaption>
+        </figure>
+
+        <figure class="figure c6" aria-labelledby="fig7-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 07</div><div class="fig-title" id="fig7-title">跨样本：立场比例的差异</div></div>
+            <div class="fig-note">主帖 174 / 旧帖 261</div>
+          </div>
+          {{COMPARE_STANCE}}
+          <figcaption class="figcaption"><b>主帖的否定率高 13.9 个百分点，元讨论低 8.1 个百分点。</b>有条件成立与概念悬置的差异不大（−3.2、−2.7）；明确肯定两帖都极少（1.1%）。短窗口更像「表态场」，长尾更像「聊天室」。</figcaption>
+        </figure>
+
+        <figure class="figure c6" aria-labelledby="fig8-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 08</div><div class="fig-title" id="fig8-title">跨样本：论证资源的此消彼长</div></div>
+            <div class="fig-note">每样本内百分比 · 差值 = 主 − 旧</div>
+          </div>
+          {{COMPARE_TAGS}}
+          <figcaption class="figcaption"><b>差异最大的不是人性，而是「经验」与「生产力」。</b>旧帖的经验案例高 15.1 个百分点、生产力高 14.4 个百分点、文本考据高 11.1 个百分点、元讨论高 12.5 个百分点；主帖在稀缺（+3.3）、需求定义（+1.8）、制度（+1.7）与分配权（+0.8）上略高。人性在旧帖反而更高（31.8% vs 23.6%）。</figcaption>
+        </figure>
+
+        <figure class="figure c12" aria-labelledby="fig9-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 09</div><div class="fig-title" id="fig9-title">旧帖时间线：第一天与十一天的尾巴</div></div>
+            <div class="fig-note">左：第一天 vs 长尾 · 右：逐日条数（对数刻度）</div>
+          </div>
+          {{OLD_TIMELINE}}
+          <figcaption class="figcaption"><b>旧帖是「一天引爆、十天余烬」。</b>第一天 210 条（80.5%），长尾 51 条。第一天否定 47.1%、元讨论 16.7%、分配权标签 33 条；长尾否定降至 31.4%、元讨论升至 37.3%、分配权只剩 1 条。<b>长尾没有把权力问题谈深，而是把它谈没了。</b>右图纵轴为对数刻度，否则 210 会把 1–9 条的日子压成一条线。</figcaption>
+        </figure>
+
+        <figure class="figure c12" aria-labelledby="fig10-title">
+          <div class="figure-head">
+            <div><div class="fig-no">FIG. 10</div><div class="fig-title" id="fig10-title">反身性窗口：#162 前后 23 分钟</div></div>
+            <div class="fig-note">报告前 161 条 vs 报告后 12 条</div>
+          </div>
+          {{REPORT_WINDOW}}
+          <figcaption class="figcaption"><b>报告没有改变讨论的形状。</b>#162 之前 161 条：否定 57.1%、元讨论 11.8%、分配权标签 24 条；#162 之后 12 条：否定 75.0%、元讨论 16.7%、分配权标签 0 条。12 条中没有一条直接回应报告；同一分钟出现的 #161 仍在嘲讽「一个月来一次」。</figcaption>
+        </figure>
+      </div>
+
+      <div class="card mt24">
+        <div class="card-label">Reading rules / 读图规则</div>
+        <p class="small mb8"><b>1. 百分比的分母是 435 条回复，不是 285 位作者。</b>同一个人多次发言会被多次计数；这符合「讨论如何展开」的问题，但不符合「多少人持某种观点」的问题。两个样本分别以 174 与 261 为分母，跨样本比较只用百分比。</p>
+        <p class="small mb8"><b>2. 标签是多选。</b>一条回复可以同时谈人性与稀缺，所以标签条数之和（主 337、旧 667、合计 1004）大于 435；标签百分比不能相加，也不能当作「赞同率」。</p>
+        <p class="small mb8"><b>3. 跨样本差异是描述性的。</b>174 与 261 都不是随机样本，作者还有 28 人重叠；图中没有显著性检验，也不应把几个百分点的差异当作总体规律。时间趋势同理：它只能说明这两个帖子里的共变，不能识别原因。</p>
+        <p class="small mb0"><b>4. 旧帖只有日期。</b>「10-13 的 210 条」内部仍有小时级结构，但语料无法还原；因此旧帖的「第一天」是一个混合了不同时段的黑箱，不能与主帖的 10 分钟分箱直接对齐。</p>
+      </div>
+    </section>
+
+
+    <section class="section" id="s05" aria-labelledby="s05-title">
+      <div class="section-head">
+        <div class="sec-num">05</div>
+        <div>
+          <div class="sec-kicker">Findings</div>
+          <h2 id="s05-title">八条发现，<span class="accent">从分布到机制</span></h2>
+          <p class="section-intro">以下每条发现都对应至少一个可复算的统计量，并配一段原文。引语只剪裁，不改写；省略处用「……」标出，楼层号指向附录中的完整原文。两个帖子都有 #162，正文以「主 / 旧」区分。</p>
+        </div>
+      </div>
+
+      <article class="finding">
+        <div class="idx">F1</div>
+        <div class="body">
+          <h3>否定接近一半，但不是全场共识</h3>
+          <p>合并样本中，明确否定 216 条（49.7%），有条件成立 71 条（16.3%），明确肯定 5 条（1.1%）；如果只看直接回答可行性的 292 条，否定率升到 <b>74.0%</b>。但「肯定」并没有消失：71 条有条件成立里，有 17 条同时怀疑自己的前提可达；另有 143 条（32.9%）根本不裁决可行性，而是把问题转成定义、权力或论坛元讨论。</p>
+          <p>真正值得注意的不是「多数人否定」，而是<b>肯定阵营的句式</b>：他们几乎从不说「能」，而是说「可以，但……」。那个「但」后面的内容，往往比「可以」更长。更窄的一层共识则出现在「基本生存」：两帖共有 20 条回复明确承认低保、福利、米饭意义上的按需分配已经成立或可以实现。</p>
+          <div class="evidence">
+            <div class="qcard"><p>「当然可以，但有前提啊，前提是物质极大丰富……不过这个前提几乎不可能达到。」</p><div class="who"><b>主 #20 Eathein</b><span>B · T5 T1 · DOUBT</span></div></div>
+            <div class="qcard"><p>「社会主义的按需分配是有可能实现的，约等于多数人都领低保。」</p><div class="who"><b>主 #18 QingXuJiaZhi</b><span>B · T9 T4 · BASIC</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="idx">F2</div>
+        <div class="body">
+          <h3>第一理由不是人性，是「拿例子说话」</h3>
+          <p>合并样本中，经验与历史案例出现 <b>127 次（29.2%）</b>，超过人性（124 次，28.5%）与意识形态/道德审判（118 次，27.1%），成为第一论证资源；稀缺只有 64 次（14.7%）。这不是说人们不再谈人性，而是说<b>人性判断通常需要一个例子来承载</b>：北欧、自助餐、洗手液、共享单车、苏联、粮票、企业家、AI。</p>
+          <p>两个帖子的「例子库」几乎不重叠。主帖的经验资源占 20.1%，偏爱即时类比（洗手液、空气、自助餐）；旧帖占 35.2%，偏爱历史与制度案例（苏联、北欧、共享单车）。旧帖的「生产力」出现率是主帖的 2.3 倍（25.3% vs 10.9%），而主帖的「AI/机器人」反而是旧帖的 2.3 倍（6.3% vs 2.7%）。<b>短窗口谈未来技术，长尾谈过去实验。</b></p>
+          <div class="evidence">
+            <div class="qcard"><p>「瑞典，丹麦，挪威，芬兰，冰岛……他们也能实现所谓的『按需分配』，广泛普惠，部分按需要提供。」</p><div class="who"><b>主 #40 wclebb</b><span>B · T10 T2 T6 T4 · DOUBT BASIC</span></div></div>
+            <div class="qcard"><p>「你没见过共享单车？？？这就是物质极大丰富。」</p><div class="who"><b>旧 #32 tf2</b><span>B · T5 T13 T10</span></div></div>
+          </div>
+          <p class="small mt16">旧 #203 把这种经验感说得很直白：「这得等生产力极大丰富了，目前还很远。目前只能说是不匮乏。」它不是在论证一个乌托邦，而是在给「现在」定位。</p>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="idx">F3</div>
+        <div class="body">
+          <h3>「需」不是最大声量，却是悬置派的共同语言</h3>
+          <p>需求定义出现 88 次（20.2%），排第四。但在 67 条概念悬置回复中，主帖有 <b>75.0%</b>（18/24）在谈定义；旧帖的悬置派则一分为二：48.8% 谈定义（21/43），48.8% 谈文本考据（21/43）。旧帖的原问题是「是不是高估了人性」，所以它的悬置更常回到马克思文本；主帖的原问题是「能不能实现」，所以它的悬置更常追问「需是什么」。</p>
+          <p>字面上，「需」在 125 条回复中出现（28.7%），主帖 37.4%、旧帖 23.0%。这堵墙反复出现：<b>基本生存需求可以列清单，欲望与位置性资源不能。</b>一旦「需」从馒头扩展到媳妇、城堡、火星，任何分配方案都会遇到定义问题。这也是为什么支持者与反对者经常在同一句话里同时是对的——他们说的「需」不是同一个「需」。</p>
+          <div class="evidence">
+            <div class="qcard"><p>「问问题之前能不能先精确定义一下什么叫『按需』？基本生存所需？还是说 72 个处女也是需求？」</p><div class="who"><b>主 #128 june4</b><span>D · T4</span></div></div>
+            <div class="qcard"><p>「现在去饭店吃饭，米饭也是按需分配呀，物质决定意识。」</p><div class="who"><b>旧 #162 c0nstantien</b><span>D · T4 T10 · BASIC</span></div></div>
+          </div>
+          <p class="small mt16">主 #135 把这一点说得更直白：「按需这个词本来就存在巨大语义漂移空间。」当同一个词可以指「活下去」也可以指「比别人过得更好」，争论就不可能靠更多生产力来解决。</p>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="idx">F4</div>
+        <div class="body">
+          <h3>两帖的「否定」，不是同一种否定</h3>
+          <p>主帖的 101 条否定中，人性 35 次（34.7%）、审判 31 次（30.7%）、稀缺 23 次（22.8%）、经验 23 次（22.8%）、分配权 16 次（15.8%）。旧帖的 115 条否定中，人性 48 次（41.7%）、经验 47 次（40.9%）、审判 44 次（38.3%）、稀缺 33 次（28.7%）、分配权 23 次（20.0%）。</p>
+          <p>形状不同：主帖的否定更像<b>当场裁决</b>——「只要欲望存在，就不可能」；旧帖的否定更像<b>事后复盘</b>——「历史上试过了」「生产力还很远」。前者把理由压在人性与道德上，后者把理由压在经验与制度上。两者都叫否定，但一个在关闭讨论，一个在延长讨论。</p>
+          <div class="evidence">
+            <div class="qcard"><p>「只要人的欲望存在，就不可能实现。」</p><div class="who"><b>主 #63 PoorBe</b><span>A · T1</span></div></div>
+            <div class="qcard"><p>「现实是谁掌握了分配权，谁就掌握了生杀大权。马克思的理论其实很难量化、不具有现实操作性……说白了就是宗教。」</p><div class="who"><b>旧 #48 iOCZS</b><span>A · T3 T11</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="idx">F5</div>
+        <div class="body">
+          <h3>短窗口越吵越否定，长尾越拖越元讨论</h3>
+          <p>主帖三段（58/58/58）的否定占比是 56.9% → 62.1% → 55.2%，中段最高；概念悬置 + 元讨论是 20.7% → 24.1% → 34.5%，末段最高。旧帖三段（87/87/87）的否定是 46.0% → 43.7% → 42.5%，一路缓慢下降；概念悬置 + 元讨论是 32.2% → 40.2% → 39.1%，中段之后维持高位。</p>
+          <p>更清楚的是「第一天 vs 长尾」：旧帖第一天 210 条，否定 47.1%、元讨论 16.7%、分配权 33 条；长尾 51 条，否定 31.4%、元讨论 <b>37.3%</b>、分配权 <b>1 条</b>。短窗口把争论推向「谁说了算」，长尾则把它推向「这帖还值不值得谈」。<b>时间尺度不是中性的容器，它改变了论证的体裁。</b></p>
+          <div class="evidence">
+            <div class="qcard"><p>「这得等生产力极大丰富了，目前还很远。目前只能说是不匮乏。」</p><div class="who"><b>旧 #203 levelworm</b><span>B · T5 T10 · DOUBT</span></div></div>
+            <div class="qcard"><p>「这个论坛不适合讨论建政类话题……最终的结果，大多都是些情绪性的发言。」</p><div class="who"><b>主 #125 coderzhangsan</b><span>E · T12 T11</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="idx">F6</div>
+        <div class="body">
+          <h3>「权力转向」只在主帖成立</h3>
+          <p>主帖的分配权标签从第一段的 1 条升到 11 条，再升到 <b>12 条</b>；旧帖则是 18 → 12 → <b>4 条</b>，方向相反。合并样本的分配权共 58 条（13.3%），绝对量不小，但它不是一个「越讨论越上升」的普遍规律。</p>
+          <p>这里必须更正上一版报告。主 #162 写的是「1 → 5 → 14 条」——那是 142 楼版本的三等分（47/47/48）。补到 174 楼后，三段各 58 条，分配权是 1 → 11 → 12。数字变了，结论的方向没变：主帖确实出现权力转向；但加上旧帖后，必须把它限定为<b>短窗口现象</b>，而不是「讨论按需分配就必然走向权力」。旧帖第一天谈权力的密度其实更高（33 条），随后才冷却。</p>
+          <div class="evidence">
+            <div class="qcard"><p>「根本就不可能，按需分配，拿谁来分配？分配的人就拥有了权力，他给自己多分配，谁来贿赂他他给谁多分配。」</p><div class="who"><b>主 #111 oldManNewThought</b><span>A · T3</span></div></div>
+            <div class="qcard"><p>「消灭有产阶级，把所有生产资料公有，谁最后掌握了分配权谁实际就变成了有产阶级，这就是个悖论。」</p><div class="who"><b>主 #138 erbin</b><span>A · T3 T6 T11</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="idx">F7</div>
+        <div class="body">
+          <h3>两场都是并行独白，旧帖有一场二人缠斗</h3>
+          <p>主帖 174 条中，只有 32 条（18.4%）@ 了某人；旧帖 261 条中有 115 条（44.1%）。但旧帖的高 @ 率主要由一场二人缠斗拉高：tf2（17 条）与 jayhuang0044（16 条）合计 33 条，其中 32 条带 @、31 条互相 @，27 条集中在 #172–#259。把这场缠斗剔除后，旧帖其余 228 条的 @ 率是 36.4%，仍高于主帖，但不再是「对话论坛」的样子。</p>
+          <p>主帖最高产的辩护者 QingXuJiaZhi 发了 8 条（#18、#23、#26、#31、#44、#48、#51、#58），只收到 3 条直接回应（#32、#114、#140）。大多数人是在对空气说话，包括彼此相反的人。把它当作公共审议的样本时要非常小心：它是一个立场的集市，不是一张谈判桌。</p>
+          <div class="evidence">
+            <div class="qcard"><p>「@tf2 共享单车，说到底还是私有财产。共财已经通过各种方法消失。不适合的例子，怎么说也不适合。」</p><div class="who"><b>旧 #44 jayhuang0044</b><span>缠斗一方 · @tf2</span></div></div>
+            <div class="qcard"><p>「思想觉悟什么的，是可以客观衡量的东西吗？」</p><div class="who"><b>主 #32 catazshadow</b><span>D · T7 T4 · 回应 #18</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="idx">F8</div>
+        <div class="body">
+          <h3>把报告发回原帖：一次没有改变场域的反身实验</h3>
+          <p>14:29:37，研究者把 142 楼版本的研究报告发回主帖（#162）。此后的 23 分钟里，帖子新增 12 条回复（#163–#174）：<b>没有一条直接回应报告</b>；9 条仍是否定（75.0%）；分配权标签为 0；概念悬置为 0。报告没有成为讨论对象，甚至没有成为攻击对象——它被当成了又一条普通回复。</p>
+          <p>同一分钟出现的 #161 还在嘲讽「一个月来一次？上一个讨论马克屎的已经水深火热了」；#170 在 14:48 说「马克思就是个马扁子」；#171 把旧帖的年龄记成「6 年」，两分钟后自己更正「是上个月的」。最后两条 #173、#174 继续谈欲望与历史灾难。<b>讨论按自己的轨道跑完了，研究只是搭了一次便车。</b>这并不证明研究无用，而是说明：一个场域的论证惯例，不会因为被描述一次就改变。</p>
+          <div class="evidence">
+            <div class="qcard"><p>「一个月来一次？上一个讨论马克屎的已经水深火热了……从来都是牛马各尽所能，领导按需分配。」</p><div class="who"><b>主 #161 gefranks</b><span>14:29:37 · 与 #162 同一分钟</span></div></div>
+            <div class="qcard"><p>「@Fistandantilus op 当真了，想了 6 年都没想明白🤣」<br>「@willbetter 看错，是上个月的……🤡」</p><div class="who"><b>主 #171 / #172 willbetter</b><span>E · T12 · CROSS（#171）</span></div></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+
+    <section class="section" id="s06" aria-labelledby="s06-title">
+      <div class="section-head">
+        <div class="sec-num">06</div>
+        <div>
+          <div class="sec-kicker">Conclusion</div>
+          <h2 id="s06-title">答案不是一个字，<span class="accent">而是三层</span></h2>
+          <p class="section-intro">如果必须回答原帖的问题，我不会说「能」或「不能」，而会说：<b>看你说的是哪一种「需」。</b>把 435 条回复的论证按「需求的范围」重新排列，会得到三个层次；每一层的答案、理由和争点都不一样。两个帖子的差异则提醒我们：同一个人群在一个月内给出的「形状」，会随时间尺度改变。</p>
+        </div>
+      </div>
+
+      <div class="answer-grid">
+        <div class="answer">
+          <div class="layer">LAYER 01 / 基本生存</div>
+          <h3>基本生存需求</h3>
+          <p class="verdict">接近可行</p>
+          <p>低保、福利国家、公共品、自助餐、米饭、洗手液——帖子里被反复举出的例子，都指向一个窄区间：需求可列举、资源可兜底、个体差异不构成冲突。两帖共有 <b>20 条</b>回复明确承认这一层（主 8 / 旧 12）。这里的难题不是「能不能」，而是可持续性与激励；旧 #44 甚至指出共享单车仍是「私有财产」，说明连这一层的边界都要争。</p>
+        </div>
+        <div class="answer">
+          <div class="layer">LAYER 02 / 无限欲望</div>
+          <h3>欲望与位置性资源</h3>
+          <p class="verdict">多数认为不可行</p>
+          <p>人性 124 条、稀缺 64 条、位置性资源主帖 10 条（旧帖 0 条）。杨幂、刘亦菲、湖景房、火星、静香不是普通商品，而是相对位置：一个人得到，另一个人就得不到。即使技术让物质极大丰富，地位竞争仍会制造人为稀缺（主 #102 的「控制空气」）。这一层才是「不可能」判断的真正所在。</p>
+        </div>
+        <div class="answer">
+          <div class="layer">LAYER 03 / 制度</div>
+          <h3>分配权与定义权</h3>
+          <p class="verdict">决定成败，却最少被系统讨论</p>
+          <p>分配权标签共 <b>58 条（13.3%）</b>：主帖 24 条、旧帖 34 条。主帖从第一段的 1 条升到 11、12 条；旧帖从 18 条降到 12、4 条。谁来分配、如何监督、如何防止分配者变成新的有产阶级（主 #138）？这一层不是生产力问题，而是政治制度问题。帖子里最尖锐的批评都落在这里，但很少有人正面设计「可监督的按需分配」制度。</p>
+        </div>
+      </div>
+
+      <div class="big-quote">所以，对「能实现吗」的回答是：<span class="accent">在基本生存上，它已经在路上；在无限欲望上，它不可能；在制度上，它取决于权力能否被约束。</span></div>
+
+      <h3>一张争论地图：物质条件 × 人性条件</h3>
+      <p class="prose">把主帖回复按两个维度重新摆放：横轴是「物质极大丰富是否可达」，纵轴是「人的利他与觉悟是否可塑」。四个象限对应四种典型立场。坐标是分析性示意，不是量表测量；只放置同时触及两个维度的代表楼层。旧帖的 #32（共享单车=丰裕）会落在右下偏「乐观」，旧 #48（谁掌握分配权）会落在左上偏「制度」，但本图不混放两个样本，以免把不同的提问框架压成同一张量表。</p>
+      <figure class="figure c12 mt16" aria-labelledby="fig11-title">
+        <div class="figure-head">
+          <div><div class="fig-no">FIG. 11</div><div class="fig-title" id="fig11-title">争论地图：四种「按需分配」</div></div>
+          <div class="fig-note">示意性定位 · 主帖 12 个代表楼层</div>
+        </div>
+        {{CONCEPT_MAP}}
+        <figcaption class="figcaption"><b>四个象限，四种答案。</b>右上「乐观方案」相信物质与人心都能改变；左上「制度/觉悟先行」放弃无限丰裕，转而改造人与制度；右下「丰裕但不自由」相信技术能解决物质，却解决不了地位竞争；左下「双重否定」同时否定物质与人性条件。<b>大多数现实争论，其实是在这四个象限之间争夺「哪个前提才算数」。</b></figcaption>
+      </figure>
+
+      <h3>这场讨论没有说完的三件事</h3>
+      <ol class="checklist">
+        <li><b>需求的操作化。</b>基本需求可以列清单，位置性资源不能；但两帖几乎没有人真正尝试给出清单。主 #128 要求定义，旧 #162 把米饭算作按需分配，旧 #11 谈合成淀粉——都是单点举例，不是可执行的清单。于是「按需」始终停留在口号层面。若要让它可讨论，第一步不是谈生产力，而是谈「哪些需求可以被列为基本需求」，以及由谁、按什么程序列。</li>
+        <li><b>权力的可约束性。</b>如果分配者受监督、预算公开、需求可申诉，按需分配会不会不同？主 #27 谈制度让获利依赖创造真实价值，主 #138 谈透明与监督缺位，主 #131 谈「确定需求的制度」；这些是帖子里少数的制度设计线索，但大多数批评仍停在「谁来分配」的质问上，没有走到「如何约束分配者」。</li>
+        <li><b>丰裕与自由。</b>主 #99 的「99% 的人成为 1% 的人的奴隶」、主 #102 的「控制空气」、旧 #141 的「能普及静香吗」提示：物质丰裕不等于解放。如果分配权集中，丰裕可能只是更精致的依附；如果地位竞争不变，丰裕只会把稀缺从物质转移到相对位置。这是全场最值得继续追问、却被「能不能」的二元问题遮住的一条线。</li>
+      </ol>
+
+      <h3>回到原问题</h3>
+      <div class="prose">
+        <p><b>如果「按需」指基本生存：</b>能，且已经在部分制度中以低保、福利、公共品、米饭的形式出现；但「能」不等于「已经」，也不等于「可持续」。旧帖里对共享单车、自助餐的争论，正说明这一层也不是无条件的。两帖 20 条 BASIC 回复是全场最接近共识的部分，却没有一条给出可执行的「基本需求清单」。</p>
+        <p><b>如果「按需」指无限欲望：</b>不能。硬约束是稀缺，软约束是人性与地位竞争；即使技术突破，位置性资源仍然稀缺。主 #102 的「控制空气」是最锋利的说明：当物质不再稀缺，权力可以制造新的稀缺。旧帖的「共享单车」例子也不稳固——#44 立刻反驳它仍是私有财产，争论随即从「丰裕」滑回「产权」。</p>
+        <p><b>如果「按需」指一种整体制度：</b>关键不在「需」，而在「谁来分配、如何监督」。这也是两场争论真正没有说完的部分。主帖的分配权标签在 4 小时内从 1 升到 12，旧帖却在 11 天里从 18 降到 4；同一个问题，一个把注意力推向制度，另一个把注意力推向「这帖还值不值得谈」。<b>权力维度是否被打开，取决于讨论的时间形态，而不只取决于参与者的立场。</b></p>
+        <p><b>最后，一个方法论上的提醒：</b>这两场讨论相隔一个月、楼主相同，却给出不同的论证形状。把任何一个单帖的「权力转向」当作普遍规律，都会高估它。上一版 142 楼报告写的是「1 → 14」，补到 174 楼后是「1 → 11 → 12」；加上旧帖，方向甚至相反。结论必须写成「在这个短窗口里」，而不是「人们最终都会」。</p>
+      </div>
+    </section>
+
+
+    <section class="section" id="s07" aria-labelledby="s07-title">
+      <div class="section-head">
+        <div class="sec-num">07</div>
+        <div>
+          <div class="sec-kicker">Research report</div>
+          <h2 id="s07-title">一份可以带走的<span class="accent">研究报告</span></h2>
+          <p class="section-intro">以下是把前面的过程压缩成论文结构的版本。它不替代过程，而是让没有时间逐图阅读的人，也能在十分钟内理解研究问题、方法、结果与局限。报告基于 435 条回复；主 #162 的 142 楼版本是它的前身，不是它的替代。</p>
+          <div class="btn-row mt16 no-print"><button class="btn accent" id="print-report" type="button">打印 / 保存 PDF</button></div>
+        </div>
+      </div>
+
+      <article class="report" aria-labelledby="report-title">
+        <div class="report-meta">
+          <span>Research report / 2026-11-18</span>
+          <span>双帖样本 · 内容分析 · 435 楼全编码</span>
+        </div>
+        <p class="report-kicker">Independent research report</p>
+        <p class="report-title" id="report-title">同一问题，两种论证：<br>V2EX 两场「按需分配」争论的跨样本话语分析</p>
+        <p class="report-byline">基于 V2EX 主帖 174 条与旧帖 261 条公开回复，共 435 条、285 位作者</p>
+
+        <h3>摘要</h3>
+        <p class="abstract">本文以 V2EX 两个同题帖子的 435 条回复为语料，使用同一套内容分析手册，逐条编码主立场与论证资源，考察「马克思的按需分配能否实现」这一规范问题如何在自然发生的网络争论中被论证。合并样本中，明确否定占 49.7%（216/435），有条件成立 16.3%（71/435），明确肯定 1.1%（5/435），概念悬置 15.4%（67/435），元讨论 17.5%（76/435）；只看直接裁决可行性的 292 条，否定率为 74.0%。第一论证资源是经验与历史案例（127 条，29.2%），高于人性（124 条，28.5%）、意识形态与道德审判（118 条，27.1%）、文本考据（89 条，20.5%）、需求定义（88 条，20.2%）与稀缺（64 条，14.7%）。两个帖子差异显著：短窗口主帖否定率 58.0%、元讨论 12.6%，长尾旧帖分别为 44.1%、20.7%；主帖分配权标签按三段为 1→11→12 条，旧帖为 18→12→4 条。主帖在 #162 把 142 楼版本报告发回原帖后，23 分钟内新增 12 条回复，无一条直接回应报告。本文据此提出三层结论：基本生存层面的按需分配接近可行；无限欲望与位置性资源层面多数认为不可行；制度层面的关键问题是分配权与监督。本文是描述性研究，不裁决规范命题，结论限于这两个样本。</p>
+        <p class="keywords"><b>关键词：</b>按需分配；稀缺；分配权；跨样本比较；内容分析；反身性</p>
+
+        <h3>1 引言</h3>
+        <p>「各尽所能，按需分配」是马克思在《哥达纲领批判》中为共产主义高级阶段提出的分配原则，并与低级阶段的「按劳分配」相区分。主帖楼主把它放到「社会主义制度下」来提问，本身已经包含一个概念错位；回复者中有人先纠正阶段论，再讨论可行性（主 #5、主 #18、旧 #18）。旧帖则换了框架：「是不是高估了人性？」把问题从制度可行性引向人性假设。两个框架都指向同一个原则，却生产出不同的理由：主帖更爱谈需求定义与道德审判，旧帖更爱谈历史案例与生产力。</p>
+        <p>直接回答「按需分配能否实现」需要规范理论、稀缺性理论与制度设计的完整论证，远超两个论坛帖子的证据能力。因此，本文改变提问方式：不判断按需分配是否应当实现，而是考察这两场争论如何论证它能不能实现，以及论证结构是否随时间尺度改变。具体研究问题是：（1）立场结构如何？（2）参与者动用了哪些论证资源，它们与立场如何绑定？（3）分钟级短窗口与天级长尾分别把论证推向哪里？（4）互动是对话还是并行独白？（5）研究者把报告发回原帖后发生了什么？</p>
+        <p>本文的贡献不在规范理论，而在一个可复核的双样本描述：它展示同一楼主、同一问题在一个月内如何长出两种论证形状，并给出一个反例——论坛讨论并不自动把问题推向更深的制度层面；短窗口可能推向权力，长尾则可能推向元讨论。本文同时更正了 142 楼版本的两处数字：分配权三段由「1→5→14」改为「1→11→12」，否定末段由 39.6% 改为 55.2%。</p>
+
+        <h3>2 数据与方法</h3>
+        <h4>2.1 语料</h4>
+        <p>语料为两个帖子的公开回复，共 435 条：主帖 t/1257906 的 1–174 楼（2026-11-18，4 小时 31 分），旧帖 t/1248284 的 1–261 楼（2026-10-13 至 10-24，11 天）。两帖作者去重后为 285 人，其中 28 人同时出现在两帖。主帖时间戳精确到秒，可做 10 分钟分箱；旧帖只有日期，只能做天级分析。正文经 HTML 清洗后保留 @ 提及、换行、错别字、表情与粗俗表达。研究不核验回复中的事实性主张，只把它们作为论证动作统计。主帖第 162 楼是研究者本人发布的 142 楼版本报告，按同一手册编码为 E 类，不享有编码特权。首轮主帖抓取为 138 楼，后续补到 142 楼，最终补到 174 楼；旧帖 261 楼经一次解析错位修正后全部对齐。</p>
+
+        <table aria-label="两个样本的语料事实">
+          <thead><tr><th>指标</th><th>主帖</th><th>旧帖</th><th>合计 / 备注</th></tr></thead>
+          <tbody>
+            <tr><td>回复数</td><td>174</td><td>261</td><td><b>435</b></td></tr>
+            <tr><td>作者数</td><td>147</td><td>166</td><td><b>285</b>（28 人重叠）</td></tr>
+            <tr><td>时间跨度</td><td>4 小时 31 分</td><td>11 天</td><td>两种尺度</td></tr>
+            <tr><td>浏览数</td><td>6,751</td><td>14,183</td><td>20,934</td></tr>
+            <tr><td>中位 / 平均长度</td><td>40 / 67.3 字</td><td>63 / 103.7 字</td><td>旧帖更长</td></tr>
+            <tr><td>含 @ 的回复</td><td>32（18.4%）</td><td>115（44.1%）</td><td>147（33.8%）</td></tr>
+            <tr><td>直接裁决（A/B/C）</td><td>128</td><td>164</td><td>292（67.1%）</td></tr>
+            <tr><td>其中否定</td><td>78.9%</td><td>70.1%</td><td>74.0%</td></tr>
+            <tr><td>承认基本需求可行</td><td>8</td><td>12</td><td>20</td></tr>
+          </tbody>
+        </table>
+
+        <h4>2.2 编码</h4>
+        <p>分析单位为一条回复。每条回复编码 1 个主立场（A 明确否定 / B 有条件成立 / C 明确肯定 / D 概念悬置 / E 元讨论）与若干论证标签（人性、稀缺、分配权、需求定义、生产力、制度、觉悟、技术、文本考据、经验案例、意识形态、元讨论、文化类比、无论证断言）。编码规则先于编码确定，边界案例按「收束句的言语行为」裁决；B 的门槛是「保留一个可成立的条件」，若作者自己取消该条件则为 A。研究者本人的报告（主 #162）编码为 E/T12，不作为支持任何立场的证据。标签为多选，主观度高于主立场。</p>
+
+        <h4>2.3 信度与局限</h4>
+        <p>主编码完成后，以固定随机种子抽取 24 楼做延迟复核：主立场一致 24/24。这只能说明编码规则可重复执行，不能替代双人独立编码，也不能计算 κ 系数。复核样本来自 142 楼版本；新增的 143–174 楼与旧帖 261 楼未进入复核。因此本文只报告样本内的描述统计，不作总体推断。所有编码与原文见附录。</p>
+
+        <h3>3 结果</h3>
+        <h4>3.1 立场结构：否定多数，但长尾把否定稀释了</h4>
+        <p>合并样本：明确否定 216 条（49.7%），有条件成立 71 条（16.3%），明确肯定 5 条（1.1%），概念悬置 67 条（15.4%），元讨论 76 条（17.5%）。如果只看直接裁决可行性的 292 条，否定率为 74.0%。两个帖子差异明显：主帖否定 58.0%、元讨论 12.6%；旧帖否定 44.1%、元讨论 20.7%。短窗口更像「表态场」，长尾更像「聊天室」。但两者都有 32.9% 的回复不直接裁决可行性，这提示「否定多数」的结论必须加上限定：它描述的是「作出裁决的人」，而不是「所有参与者」。</p>
+
+        <h4>3.2 论证资源：经验与案例第一，稀缺被高估</h4>
+        <p>合并样本的论证资源排序为：经验与案例 127 条（29.2%）、人性 124 条（28.5%）、意识形态/审判 118 条（27.1%）、文本考据 89 条（20.5%）、需求定义 88 条（20.2%）、生产力 85 条（19.5%）、元讨论 80 条（18.4%）、稀缺 64 条（14.7%）、制度 63 条（14.5%）、分配权 58 条（13.3%）。标签总次数为 1004，远大于 435，因为一条回复可以调用多个理由。</p>
+        <p>立场与论证资源高度绑定，但绑定的方式在两个样本中不同。主帖否定派最常动用人性（34.7%）与审判（30.7%）；旧帖否定派最常动用人性（41.7%）、经验（40.9%）与审判（38.3%）。主帖条件肯定派最常谈生产力（52.0%）；旧帖条件肯定派几乎把「条件」等同于生产力（84.8%）。主帖概念悬置派有 75.0% 在谈需求定义；旧帖悬置派则是需求定义与文本考据各 48.8%。换句话说，不同立场的人不仅在结论上不同，连「什么算理由」都不同；而同一个立场在不同时间尺度下，也会换一套理由。</p>
+
+        <table aria-label="十个主要论证标签的两样本出现率">
+          <thead><tr><th>标签</th><th>主帖（n=174）</th><th>旧帖（n=261）</th><th>合并（n=435）</th></tr></thead>
+          <tbody>
+            <tr><td>T10 经验与历史案例</td><td>20.1%</td><td>35.2%</td><td><b>29.2%</b></td></tr>
+            <tr><td>T1 人性与欲望</td><td>23.6%</td><td>31.8%</td><td><b>28.5%</b></td></tr>
+            <tr><td>T11 意识形态与道德审判</td><td>25.3%</td><td>28.4%</td><td><b>27.1%</b></td></tr>
+            <tr><td>T9 文本与作者考据</td><td>13.8%</td><td>24.9%</td><td>20.5%</td></tr>
+            <tr><td>T4 需求定义与语义</td><td>21.3%</td><td>19.5%</td><td>20.2%</td></tr>
+            <tr><td>T5 生产力与极大丰富</td><td>10.9%</td><td>25.3%</td><td>19.5%</td></tr>
+            <tr><td>T12 元讨论</td><td>10.9%</td><td>23.4%</td><td>18.4%</td></tr>
+            <tr><td>T2 稀缺与物理限制</td><td>16.7%</td><td>13.4%</td><td>14.7%</td></tr>
+            <tr><td>T6 制度与激励</td><td>15.5%</td><td>13.8%</td><td>14.5%</td></tr>
+            <tr><td>T3 分配权与监督</td><td>13.8%</td><td>13.0%</td><td>13.3%</td></tr>
+          </tbody>
+        </table>
+
+        <h4>3.3 时间形态：短窗口的权力转向，长尾的元讨论化</h4>
+        <p>按楼层三等分，主帖（58/58/58）的否定占比为 56.9% → 62.1% → 55.2%，概念悬置与元讨论为 20.7% → 24.1% → 34.5%，分配权标签为 1 → 11 → 12 条；末段并没有出现否定的持续上升，而是出现了「问题转换」：从「生产力够不够」转向「谁来分配、谁定义需、谁监督」。旧帖（87/87/87）的否定为 46.0% → 43.7% → 42.5%，概念悬置与元讨论为 32.2% → 40.2% → 39.1%，分配权标签为 18 → 12 → 4 条；方向与主帖相反。旧帖第一天 210 条，否定 47.1%、元讨论 16.7%、分配权 33 条；长尾 51 条，否定 31.4%、元讨论 37.3%、分配权 1 条。长尾没有把权力问题谈深，而是把它谈没了。</p>
+
+        <h4>3.4 互动形态：并行独白多于对话</h4>
+        <p>主帖 174 条中，只有 32 条（18.4%）@ 了某人；旧帖 261 条中有 115 条（44.1%），但后者主要由一场二人缠斗拉高：tf2 与 jayhuang0044 合计 33 条，其中 32 条带 @、31 条互相 @，27 条集中在 #172–#259。剔除这场缠斗后，旧帖其余 228 条的 @ 率为 36.4%，仍高于主帖，但不再是「对话论坛」的样子。主帖最高产的辩护者 QingXuJiaZhi 发了 8 条，只收到 3 条直接回应。两帖都更像「立场的集市」，而不是「谈判桌」；这并不否定其价值，但足以提醒我们不要把它直接等同于公共审议。</p>
+
+        <h4>3.5 反身性：报告没有改变场域</h4>
+        <p>主 #162 于 14:29:37 发布 142 楼版本报告；此后 23 分钟内新增 12 条回复（#163–#174），没有一条直接回应报告；其中 9 条是否定（75.0%），分配权标签为 0，概念悬置为 0。同一分钟出现的 #161 仍在嘲讽「一个月来一次」；#171 把旧帖年龄记成「6 年」，两分钟后自己更正「是上个月的」。报告没有成为讨论对象，也没有成为攻击对象，而是被当作又一条普通回复。这一反身性事件说明：一个场域的论证惯例，不会因为被描述一次就改变。</p>
+
+        <h3>4 讨论</h3>
+        <h4>4.1 三层结论</h4>
+        <p>第一层，基本生存需求：低保、福利国家、公共品、米饭等例子表明，这一层的按需分配接近可行；两帖共 20 条回复明确承认这一点，争点转向可持续性与激励。第二层，无限欲望与位置性资源：人性 124 条、稀缺 64 条、位置性资源主帖 10 条，使多数参与者认为不可行；即使技术突破，相对位置仍然稀缺，权力甚至可以制造新的稀缺（「控制空气」）。第三层，制度与分配权：58 条谈分配权，主帖末段升至 12 条，旧帖降至 4 条；真正决定成败的是「谁来分配、如何监督」，而这恰恰是讨论最少的部分。</p>
+
+        <h4>4.2 定义的政治</h4>
+        <p>「需」是一个本质 contested 的概念：它可以指活下去，也可以指比别人过得更好。当同一个词覆盖两种对象时，支持者与反对者可以在同一句话里同时为真。帖子中「语义漂移」（主 #135）、「谁有资格定义高觉悟」（主 #114）、「米饭也是按需分配」（旧 #162）等表述，说明争论的焦点已经从经济学转向政治学：不是「能不能生产足够多」，而是「谁有权决定什么算够」。这也是为什么更多生产力无法自动解决争论。两个帖子的定义工作也不同：主帖追问「需是什么」，旧帖追问「马克思原意是什么」；前者是概念分析，后者是文本考据。</p>
+
+        <h4>4.3 丰裕与自由</h4>
+        <p>主 #99 的「99% 的人成为 1% 的人的奴隶」、主 #102 的「控制空气」、旧 #141 的「能普及静香吗」提示：物质丰裕不等于解放。如果分配权集中，丰裕可能只是更精致的依附；如果地位竞争不变，丰裕只会把稀缺从物质转移到相对位置。旧帖的「共享单车」争论尤其说明问题：#32 把共享单车当作「物质极大丰富」的证据，#44 立刻反驳它「说到底还是私有财产」。丰裕的例子一旦被放进产权框架，就不再是丰裕。这一条线在帖子里只被少数人触及，却是理解「按需分配」政治维度的关键。</p>
+
+        <h4>4.4 时间尺度与反身性</h4>
+        <p>两个帖子相隔一个月、楼主相同，却长出了不同的论证形状。短窗口（4 小时）把注意力推向权力：主帖分配权 1→11→12。长尾（11 天）把注意力推向元讨论：旧帖元讨论 16.7%→37.3%，分配权 33→1。可能的解释有三：后加入者的构成不同；长尾的边际参与者更愿意聊天而不是辩论；或者短窗口的密集互动本身就会把问题激进化。本样本无法识别是哪一种，只能确认时间尺度与论证体裁存在共变。反身性事件（#162）则提供了另一个负面证据：即使把研究放回场域，场域也不会自动改变。这对「论坛讨论能否作为公共审议样本」是一个具体的反例：它有理由的交换，但缺少共同的判断标准与回应义务。</p>
+
+        <h3>5 局限</h3>
+        <p>（1）两个帖子、单平台、非随机样本，作者还有 28 人重叠，不能外推为总体舆论；（2）单人编码，未做双人独立编码，无法计算 κ；24/24 的复核只覆盖 142 楼版本，新增 32 楼与旧帖 261 楼未复核；（3）旧帖时间戳只有日期，天级分析无法还原小时级结构；（4）标签含主观判断，尤其 T11 与 T4 的边界；（5）未核验回复中的事实性主张，也未收集点赞、排序、删帖与用户人口学信息；（6）研究者本人是主帖参与者（#162），虽然编码时不享有特权，但选题与解释仍可能受参与经验影响；（7）时间趋势是描述性的，不能识别因果。以上局限不否定本样本的描述价值，但限制了规范性与因果性结论。</p>
+
+        <h3>6 参考</h3>
+        <ol class="refs">
+          <li>V2EX. 《马克思的按需分配，能实现吗》第 1 页 [EB/OL]. https://global.v2ex.co/t/1257906?p=1（2026-11-18）.</li>
+          <li>V2EX. 同上，第 2 页 [EB/OL]. https://global.v2ex.co/t/1257906?p=2（2026-11-18）.</li>
+          <li>V2EX. 《马克思的按需分配，是不是高估了人性？》第 1 页 [EB/OL]. https://v2ex.com/t/1248284?p=1（2026-10-13）.</li>
+          <li>V2EX. 同上，第 2 页 [EB/OL]. https://v2ex.com/t/1248284?p=2（2026-10-13）.</li>
+          <li>V2EX. 同上，第 3 页 [EB/OL]. https://v2ex.com/t/1248284?p=3（2026-10-13 至 10-24）.</li>
+          <li>马克思. 《哥达纲领批判》[M]. 1875.（「按劳分配」与「按需分配」的阶段区分，见正文第 1 节.）</li>
+        </ol>
+
+        <p class="small mt24 mb0">附录 A（编码手册）见第 02 节；附录 B（435 条完整编码表）见第 08 节。本文所有统计量均可由附录数据复算。142 楼版本报告见主帖 #162。</p>
+      </article>
+    </section>
+
+
+    <section class="section" id="s08" aria-labelledby="s08-title">
+      <div class="section-head">
+        <div class="sec-num">08</div>
+        <div>
+          <div class="sec-kicker">Appendix</div>
+          <h2 id="s08-title">全部 435 条，<span class="accent">逐条可查</span></h2>
+          <p class="section-intro">附录是本研究的地基：每一条回复的原文、主立场、论证标签与备注都在这里。两个帖子分标签页展示；每个标签页有自己的筛选、搜索与下载。所有正文引语都能在表中找到对应楼层。</p>
+        </div>
+      </div>
+
+      <div class="btn-row no-print">
+        <button class="btn" id="download-all-json" type="button">下载全部编码 JSON</button>
+        <button class="btn ghost" id="download-all-csv" type="button">下载全部 CSV</button>
+        <a class="btn ghost" href="https://global.v2ex.co/t/1257906?p=1" target="_blank" rel="noopener">主帖第 1 页 ↗</a>
+        <a class="btn ghost" href="https://v2ex.com/t/1248284?p=1" target="_blank" rel="noopener">旧帖第 1 页 ↗</a>
+      </div>
+      <p class="print-only small">打印版省略了 435 行逐条编码表（避免打印物变成 30 页表格）。完整数据请在网页版第 08 节筛选、搜索，或从网页下载 JSON 与 CSV。</p>
+
+      <div class="sample-tabs no-print" role="tablist" aria-label="选择语料样本">
+        <button class="sample-tab" id="tab-main" role="tab" type="button" data-sample-tab="main" aria-selected="true" aria-controls="panel-main">主帖 · 174 条</button>
+        <button class="sample-tab" id="tab-old" role="tab" type="button" data-sample-tab="old" aria-selected="false" aria-controls="panel-old">旧帖 · 261 条</button>
+      </div>
+
+      <div class="sample-panel" id="panel-main" role="tabpanel" aria-labelledby="tab-main" data-sample-panel="main">
+        <div class="filters no-print" role="group" aria-label="筛选主帖编码表">
+          <button class="filter-chip" type="button" data-stance-filter="all" aria-pressed="true">全部</button>
+          <button class="filter-chip" type="button" data-stance-filter="A" aria-pressed="false">A 明确否定</button>
+          <button class="filter-chip" type="button" data-stance-filter="B" aria-pressed="false">B 有条件成立</button>
+          <button class="filter-chip" type="button" data-stance-filter="C" aria-pressed="false">C 明确肯定</button>
+          <button class="filter-chip" type="button" data-stance-filter="D" aria-pressed="false">D 概念悬置</button>
+          <button class="filter-chip" type="button" data-stance-filter="E" aria-pressed="false">E 元讨论</button>
+          <label class="search" for="search-main"><span>⌕</span><input class="js-search" id="search-main" type="search" placeholder="搜索主帖原文、作者、楼层或备注…" autocomplete="off"></label>
+          <select class="filter-chip js-tag" aria-label="按论证标签筛选主帖" style="padding:6px 8px;max-width:210px">
+            {{TAG_OPTIONS}}
+          </select>
+          <button class="filter-chip js-clear" type="button">清除筛选</button>
+        </div>
+        <div class="filter-meta">
+          <span>显示 <b class="js-count">174</b> / <span data-total="174">174</span> 条</span>
+          <span>主帖行 ID 前缀 f · 原文保留，未做删改 · 表格可横向滚动</span>
+        </div>
+        <div class="table-wrap">
+          <table class="coded-table" aria-label="主帖 174 条回复的完整编码表">
+            <thead>
+              <tr><th>楼</th><th>时间</th><th>作者</th><th>立场</th><th>论证标签</th><th>备注</th><th>原文</th></tr>
+            </thead>
+            <tbody>
+              {{APPENDIX_ROWS}}
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state js-empty">没有符合条件的主帖回复。试试清除筛选，或换一个关键词。</div>
+        <div class="btn-row no-print mt16">
+          <button class="btn ghost js-download-json" type="button">下载主帖编码 JSON</button>
+          <button class="btn ghost js-download-csv" type="button">下载主帖 CSV</button>
+        </div>
+      </div>
+
+      <div class="sample-panel" id="panel-old" role="tabpanel" aria-labelledby="tab-old" data-sample-panel="old" hidden>
+        <div class="filters no-print" role="group" aria-label="筛选旧帖编码表">
+          <button class="filter-chip" type="button" data-stance-filter="all" aria-pressed="true">全部</button>
+          <button class="filter-chip" type="button" data-stance-filter="A" aria-pressed="false">A 明确否定</button>
+          <button class="filter-chip" type="button" data-stance-filter="B" aria-pressed="false">B 有条件成立</button>
+          <button class="filter-chip" type="button" data-stance-filter="C" aria-pressed="false">C 明确肯定</button>
+          <button class="filter-chip" type="button" data-stance-filter="D" aria-pressed="false">D 概念悬置</button>
+          <button class="filter-chip" type="button" data-stance-filter="E" aria-pressed="false">E 元讨论</button>
+          <label class="search" for="search-old"><span>⌕</span><input class="js-search" id="search-old" type="search" placeholder="搜索旧帖原文、作者、楼层或备注…" autocomplete="off"></label>
+          <select class="filter-chip js-tag" aria-label="按论证标签筛选旧帖" style="padding:6px 8px;max-width:210px">
+            {{OLD_TAG_OPTIONS}}
+          </select>
+          <button class="filter-chip js-clear" type="button">清除筛选</button>
+        </div>
+        <div class="filter-meta">
+          <span>显示 <b class="js-count">261</b> / <span data-total="261">261</span> 条</span>
+          <span>旧帖行 ID 前缀 o · 时间只有日期 · 表格可横向滚动</span>
+        </div>
+        <div class="table-wrap">
+          <table class="coded-table" aria-label="旧帖 261 条回复的完整编码表">
+            <thead>
+              <tr><th>楼</th><th>日期</th><th>作者</th><th>立场</th><th>论证标签</th><th>备注</th><th>原文</th></tr>
+            </thead>
+            <tbody>
+              {{OLD_APPENDIX_ROWS}}
+            </tbody>
+          </table>
+        </div>
+        <div class="empty-state js-empty">没有符合条件的旧帖回复。试试清除筛选，或换一个关键词。</div>
+        <div class="btn-row no-print mt16">
+          <button class="btn ghost js-download-json" type="button">下载旧帖编码 JSON</button>
+          <button class="btn ghost js-download-csv" type="button">下载旧帖 CSV</button>
+        </div>
+      </div>
+
+      <div class="cards g2 mt32">
+        <div class="card">
+          <div class="card-label">Reproducibility / 复算</div>
+          <p class="small mb8">数据流水线：抓取 5 个页面 → 解析 435 楼 → 逐条编码 → 统计 → 图表与表格。结构化文件包括：<span class="mono">corpus.json</span>（主帖 174 楼）、<span class="mono">corpus_old.json</span>（旧帖 261 楼）、<span class="mono">coded.json</span>（主帖编码）、<span class="mono">coded_old.json</span>（旧帖编码）、<span class="mono">analysis.json</span>（主帖统计 + 旧帖 + 对照）、<span class="mono">analysis_old.json</span>（旧帖统计副本）。</p>
+          <p class="small mb0">正文与图表中的数字取自同一份统计结果；标签为多选，百分比分别以 174、261、435 为分母。若发现任何数字与附录不一致，以附录逐条数据为准，并欢迎指出。</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Sources / 来源</div>
+          <ul class="source-list">
+            <li><span class="id">S1</span><span>主帖第 1 页（1–100 楼）<br><a class="url" href="https://global.v2ex.co/t/1257906?p=1" target="_blank" rel="noopener">https://global.v2ex.co/t/1257906?p=1</a></span></li>
+            <li><span class="id">S2</span><span>主帖第 2 页（101–174 楼）<br><a class="url" href="https://global.v2ex.co/t/1257906?p=2" target="_blank" rel="noopener">https://global.v2ex.co/t/1257906?p=2</a></span></li>
+            <li><span class="id">S3</span><span>旧帖第 1 页（1–100 楼）<br><a class="url" href="https://v2ex.com/t/1248284?p=1" target="_blank" rel="noopener">https://v2ex.com/t/1248284?p=1</a></span></li>
+            <li><span class="id">S4</span><span>旧帖第 2 页（101–200 楼）<br><a class="url" href="https://v2ex.com/t/1248284?p=2" target="_blank" rel="noopener">https://v2ex.com/t/1248284?p=2</a></span></li>
+            <li><span class="id">S5</span><span>旧帖第 3 页（201–261 楼）<br><a class="url" href="https://v2ex.com/t/1248284?p=3" target="_blank" rel="noopener">https://v2ex.com/t/1248284?p=3</a></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mt24">
+        <div class="card-label">Citation / 引用建议</div>
+        <p class="small mb0">引用本页时，请同时注明：（1）语料为 V2EX 主帖 174 条与旧帖 261 条公开回复，共 435 条；（2）编码与统计为研究者判断，非平台官方数据；（3）引语保留楼层号，并注明「主 / 旧」；（4）本研究为描述性样本，不作总体推断。建议格式：〈同一问题，两种论证：V2EX 两场「按需分配」争论的跨样本话语分析〉，2026-11-18，基于 https://global.v2ex.co/t/1257906 与 https://v2ex.com/t/1248284。</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="mark">把争论看清楚，<span>不等于</span>把争论判完。</div>
+      <div class="fine"><a href="index.html">← 王吉彬学习小站</a> · 研究 No. 0001<br>本页为独立研究演示。语料来自公开论坛，观点属于原作者；编码与统计由研究者完成。引用请保留楼层号与原始链接。研究者本人是主帖 #162 的发布者，该身份已在正文披露。最后更新：2026-11-18。</div>
+    </footer>
+  </main>
+</div>
+<script>
+/* __CODED_JSON__ */
+</script>
+<script>
+(function(){
+  "use strict";
+  var progress = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
+    progress.style.width = (p * 100).toFixed(2) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a[href^="#"], .topnav a[href^="#"]'));
+  var targets = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el && targets.indexOf(el) < 0) targets.push(el);
+  });
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+        }
+      });
+    }, {rootMargin:'-20% 0px -70% 0px', threshold:0});
+    targets.forEach(function(t){ obs.observe(t); });
+  }
+
+  function initPanel(root){
+    if(!root) return null;
+    var state = {stance:'all', tag:'', q:''};
+    var rows = Array.prototype.slice.call(root.querySelectorAll('tbody tr'));
+    var countEl = root.querySelector('.js-count');
+    var emptyEl = root.querySelector('.js-empty');
+    var stanceBtns = Array.prototype.slice.call(root.querySelectorAll('[data-stance-filter]'));
+    var tagSel = root.querySelector('.js-tag');
+    var searchEl = root.querySelector('.js-search');
+    var clearBtn = root.querySelector('.js-clear');
+
+    function apply(){
+      var q = state.q.trim().toLowerCase();
+      var shown = 0;
+      rows.forEach(function(row){
+        var okStance = state.stance === 'all' || row.getAttribute('data-stance') === state.stance;
+        var tags = (row.getAttribute('data-tags') || '').split(' ');
+        var okTag = !state.tag || tags.indexOf(state.tag) >= 0;
+        var okQ = !q || row.textContent.toLowerCase().indexOf(q) >= 0;
+        var show = okStance && okTag && okQ;
+        row.classList.toggle('is-hidden', !show);
+        if(show) shown++;
+      });
+      if(countEl) countEl.textContent = String(shown);
+      if(emptyEl) emptyEl.style.display = shown === 0 ? 'block' : 'none';
+      if(tagSel) tagSel.value = state.tag;
+      stanceBtns.forEach(function(b){
+        b.setAttribute('aria-pressed', b.getAttribute('data-stance-filter') === state.stance ? 'true' : 'false');
+      });
+    }
+    stanceBtns.forEach(function(b){
+      b.addEventListener('click', function(){
+        state.stance = b.getAttribute('data-stance-filter');
+        apply();
+      });
+    });
+    if(tagSel){
+      tagSel.addEventListener('change', function(){ state.tag = tagSel.value; apply(); });
+    }
+    if(searchEl){
+      var t;
+      searchEl.addEventListener('input', function(){
+        clearTimeout(t);
+        t = setTimeout(function(){ state.q = searchEl.value; apply(); }, 120);
+      });
+    }
+    if(clearBtn){
+      clearBtn.addEventListener('click', function(){
+        state = {stance:'all', tag:'', q:''};
+        if(searchEl) searchEl.value = '';
+        apply();
+      });
+    }
+    return {
+      apply: apply,
+      setTag: function(tag){
+        state.tag = tag;
+        state.stance = 'all';
+        state.q = '';
+        if(searchEl) searchEl.value = '';
+        apply();
+      }
+    };
+  }
+
+  var panelMain = document.getElementById('panel-main');
+  var panelOld = document.getElementById('panel-old');
+  var panels = {
+    main: initPanel(panelMain),
+    old: initPanel(panelOld)
+  };
+
+  function activateSample(key){
+    Array.prototype.slice.call(document.querySelectorAll('[data-sample-tab]')).forEach(function(btn){
+      var on = btn.getAttribute('data-sample-tab') === key;
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    Array.prototype.slice.call(document.querySelectorAll('[data-sample-panel]')).forEach(function(p){
+      p.hidden = p.getAttribute('data-sample-panel') !== key;
+    });
+  }
+  Array.prototype.slice.call(document.querySelectorAll('[data-sample-tab]')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      activateSample(btn.getAttribute('data-sample-tab'));
+    });
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll('[data-filter-tag]')).forEach(function(el){
+    el.addEventListener('click', function(){
+      var tag = el.getAttribute('data-filter-tag');
+      activateSample('main');
+      if(panels.main) panels.main.setTag(tag);
+      var s = document.getElementById('s08');
+      if(s){
+        var y = s.getBoundingClientRect().top + window.pageYOffset - 66;
+        var root = document.documentElement;
+        var prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, y);
+        root.style.scrollBehavior = prev;
+      }
+    });
+  });
+
+  function download(name, text, mime){
+    var blob = new Blob([text], {type:mime});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+  }
+
+  function csvFor(data){
+    var head = ['floor','author','time','stance','stance_label','tags','note','text'];
+    function cell(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }
+    var lines = [head.map(cell).join(',')];
+    data.replies.forEach(function(r){
+      lines.push([r.floor,r.author,r.time,r.stance,data.stances[r.stance],r.tags.join(' '),r.note,r.text].map(cell).join(','));
+    });
+    return '\ufeff' + lines.join('\r\n');
+  }
+
+  var mainJson = panelMain ? panelMain.querySelector('.js-download-json') : null;
+  if(mainJson) mainJson.addEventListener('click', function(){
+    download('v2ex-1257906-coded.json', JSON.stringify(window.__CODED__, null, 2), 'application/json;charset=utf-8');
+  });
+  var oldJson = panelOld ? panelOld.querySelector('.js-download-json') : null;
+  if(oldJson) oldJson.addEventListener('click', function(){
+    download('v2ex-1248284-coded.json', JSON.stringify(window.__CODED_OLD__, null, 2), 'application/json;charset=utf-8');
+  });
+  var allJson = document.getElementById('download-all-json');
+  if(allJson) allJson.addEventListener('click', function(){
+    download('v2ex-dual-sample-coded.json', JSON.stringify({main: window.__CODED__, old: window.__CODED_OLD__}, null, 2), 'application/json;charset=utf-8');
+  });
+
+  var mainCsv = panelMain ? panelMain.querySelector('.js-download-csv') : null;
+  if(mainCsv) mainCsv.addEventListener('click', function(){
+    download('v2ex-1257906-coded.csv', csvFor(window.__CODED__), 'text/csv;charset=utf-8');
+  });
+  var oldCsv = panelOld ? panelOld.querySelector('.js-download-csv') : null;
+  if(oldCsv) oldCsv.addEventListener('click', function(){
+    download('v2ex-1248284-coded.csv', csvFor(window.__CODED_OLD__), 'text/csv;charset=utf-8');
+  });
+  var allCsv = document.getElementById('download-all-csv');
+  if(allCsv) allCsv.addEventListener('click', function(){
+    var head = ['sample','floor','author','time','stance','stance_label','tags','note','text'];
+    function cell(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }
+    var lines = [head.map(cell).join(',')];
+    [['main', window.__CODED__], ['old', window.__CODED_OLD__]].forEach(function(pair){
+      pair[1].replies.forEach(function(r){
+        lines.push([pair[0],r.floor,r.author,r.time,r.stance,pair[1].stances[r.stance],r.tags.join(' '),r.note,r.text].map(cell).join(','));
+      });
+    });
+    download('v2ex-dual-sample-coded.csv', '\ufeff' + lines.join('\r\n'), 'text/csv;charset=utf-8');
+  });
+
+  var printBtn = document.getElementById('print-report');
+  if(printBtn){ printBtn.addEventListener('click', function(){ window.print(); }); }
+
+  if(panels.main) panels.main.apply();
+  if(panels.old) panels.old.apply();
+})();
+</script>
+</body>
+</html>
